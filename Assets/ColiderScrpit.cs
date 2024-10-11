@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class ColiderScrpit : MonoBehaviour
 {
+    public static List<GameObject> CloseEnemys = new List<GameObject>();
     void Start()
     {
-        li
+
     }
 
     void Update()
@@ -14,11 +15,18 @@ public class ColiderScrpit : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other) 
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Ai_1" ||other.gameObject.tag == "Ai_2" ||other.gameObject.tag == "Ai_3")
+        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3")
         {
-            
+            CloseEnemys.Add(other.gameObject);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3")
+        {
+            CloseEnemys.Remove(other.gameObject);
         }
     }
 }
