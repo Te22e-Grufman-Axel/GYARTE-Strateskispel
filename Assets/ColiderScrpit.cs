@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ColiderScrpit : MonoBehaviour
 {
-    public static List<GameObject> CloseEnemys = new List<GameObject>();
+    
+    public  List<GameObject> CloseEnemys = new List<GameObject>();
     void Start()
     {
 
@@ -12,13 +13,17 @@ public class ColiderScrpit : MonoBehaviour
 
     void Update()
     {
-
+    // if (CloseEnemys.Count > 0)
+    // {
+    //   Debug.Log(CloseEnemys);
+    // }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3")
         {
+          
             CloseEnemys.Add(other.gameObject);
         }
     }
