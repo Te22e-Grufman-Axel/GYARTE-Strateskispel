@@ -33,20 +33,41 @@ public class Knight_Ai : MonoBehaviour
       if (Knight.CalculatePath(CloseEnemys2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
       {
         Knight.SetPath(navMeshPath);
-        float lengt = Knight.remainingDistance;
+        // Debug.Log(Knight.remainingDistance);
       }
     }
     else
     {
       Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
       float RedflagLenght = Knight.remainingDistance;
-      Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+      // Debug.Log("R: " + RedflagLenght);
+      Debug.Log(navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
+      // Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
       float GreenFlagLenght = Knight.remainingDistance;
-      Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+      // Debug.Log("G: " + GreenFlagLenght);
+      // Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
       float YellowFlagLenght = Knight.remainingDistance;
+      // Debug.Log("Y: " + YellowFlagLenght);
 
-     float closesfort = Math.Min(RedflagLenght, Math.Min(GreenFlagLenght, YellowFlagLenght));
-      
+      float closesfort = Math.Min(RedflagLenght, Math.Min(GreenFlagLenght, YellowFlagLenght));
+
+      // Debug.Log(closesfort + "  R: " + RedflagLenght + "  G: " + GreenFlagLenght + "  Y: " + YellowFlagLenght);
+
+      // if (closesfort == RedflagLenght)
+      // {
+      //   Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
+      // else if (closesfort == GreenFlagLenght)
+      // {
+      //   Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
+      // else if (closesfort == YellowFlagLenght)
+      // {
+      //   Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
 
     }
   }
