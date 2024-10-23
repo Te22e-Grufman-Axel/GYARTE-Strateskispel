@@ -40,8 +40,8 @@ public class Knight_Ai : MonoBehaviour
     {
       Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
       float RedflagLenght = Knight.remainingDistance;
-      Debug.Log(navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
-      Debug.Log(RedflagLenght);
+      // Debug.Log(navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
+      // Debug.Log(RedflagLenght);
       Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
       float GreenFlagLenght = Knight.remainingDistance;
       Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);

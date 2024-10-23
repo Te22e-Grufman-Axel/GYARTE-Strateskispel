@@ -17,7 +17,7 @@ public class ColiderScrpit : MonoBehaviour
     {
         if (CloseEnemys.Count > 0)
         {
-          Debug.Log(CloseEnemys);
+        //   Debug.Log(CloseEnemys);
         }
     }
 

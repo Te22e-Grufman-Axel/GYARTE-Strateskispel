@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class FlagScrpit : MonoBehaviour
 {
+    
     void Start()
     {
-        
+    
     }
 
     void Update()
