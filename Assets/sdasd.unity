@@ -191,11 +191,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 50
   m_Center: {x: 0, y: 6.5, z: 0}
---- !u!1 &299148450 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
-  m_PrefabInstance: {fileID: 1567345507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &413000170
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1000,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1548736396}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1131,28 +1126,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2043742805}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1567345511}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
 --- !u!4 &1567345508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
   m_PrefabInstance: {fileID: 1567345507}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1567345511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299148450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1177e25ad03b0647984757595166baa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1573528310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1570,7 +1550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -19.9
+      value: -21.23
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1795,7 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a61fe12eea6f429a1155575cb4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Player
+  Tag: 
 --- !u!135 &2043742807
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -7,11 +7,11 @@ public class Flagcoliderscrpit : MonoBehaviour
 {
     float Timmer;
     int Hp = 100;
-    public string tag;
+    public string Tag;
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag != tag)
+        if (other.gameObject.tag != Tag)
         {
             Timmer += 1 * Time.deltaTime;
             if (Timmer > 1)

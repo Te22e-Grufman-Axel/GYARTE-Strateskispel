@@ -65,7 +65,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Flagcoliderscrpit.cs" />
-    <Compile Include="Assets\FlagScrpit.cs" />
     <Compile Include="Assets\ColiderScrpit.cs" />
     <Compile Include="Assets\Knight_Ai script.cs" />
   </ItemGroup>

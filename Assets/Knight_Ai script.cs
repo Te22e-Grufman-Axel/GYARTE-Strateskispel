@@ -38,32 +38,39 @@ public class Knight_Ai : MonoBehaviour
     }
     else
     {
-      Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
-      float RedflagLenght = Knight.remainingDistance;
+      // Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+      // float RedflagLenght = Knight.remainingDistance;
       // Debug.Log(navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
       // Debug.Log(RedflagLenght);
-      Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
-      float GreenFlagLenght = Knight.remainingDistance;
-      Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
-      float YellowFlagLenght = Knight.remainingDistance;
+      // Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+      // float GreenFlagLenght = Knight.remainingDistance;
+      // Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+      // float YellowFlagLenght = Knight.remainingDistance;
 
-      float closesfort = Math.Min(RedflagLenght, Math.Min(GreenFlagLenght, YellowFlagLenght));
+      // float closesfort = Math.Min(RedflagLenght, Math.Min(GreenFlagLenght, YellowFlagLenght));
 
-      if (closesfort == RedflagLenght)
-      {
-        Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
-        Knight.SetPath(navMeshPath);
-      }
-      else if (closesfort == GreenFlagLenght)
-      {
-        Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
-        Knight.SetPath(navMeshPath);
-      }
-      else if (closesfort == YellowFlagLenght)
-      {
-        Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
-        Knight.SetPath(navMeshPath);
-      }
+      // if (closesfort == RedflagLenght)
+      // {
+      //   Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
+      // else if (closesfort == GreenFlagLenght)
+      // {
+      //   Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
+      // else if (closesfort == YellowFlagLenght)
+      // {
+      //   Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+      //   Knight.SetPath(navMeshPath);
+      // }
+
+
+      
+
+
+
+
 
     }
   }
