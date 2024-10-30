@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -38,35 +39,33 @@ public class Knight_Ai : MonoBehaviour
     }
     else
     {
-      // Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
-      // float RedflagLenght = Knight.remainingDistance;
-      // Debug.Log(navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete);
-      // Debug.Log(RedflagLenght);
-      // Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
-      // float GreenFlagLenght = Knight.remainingDistance;
-      // Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
-      // float YellowFlagLenght = Knight.remainingDistance;
-
-      // float closesfort = Math.Min(RedflagLenght, Math.Min(GreenFlagLenght, YellowFlagLenght));
-
-      // if (closesfort == RedflagLenght)
-      // {
-      //   Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
-      //   Knight.SetPath(navMeshPath);
-      // }
-      // else if (closesfort == GreenFlagLenght)
-      // {
-      //   Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
-      //   Knight.SetPath(navMeshPath);
-      // }
-      // else if (closesfort == YellowFlagLenght)
-      // {
-      //   Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
-      //   Knight.SetPath(navMeshPath);
-      // }
+      float Reddistance = UnityEngine.Vector3.Distance(Knight.transform.position, RedFlag.transform.position);
+      float Greendistance = UnityEngine.Vector3.Distance(Knight.transform.position, GreenFlag.transform.position);
+      float Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position);
+  
+      float closesfort = Math.Min(Reddistance, Math.Min(Greendistance, Yellowdistance));
+Debug.Log("closesfort " + closesfort + " R " + Reddistance + " G " + Greendistance + " Y " + Yellowdistance);
+      if (closesfort == Reddistance)
+      {
+        Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+        Knight.SetPath(navMeshPath);
+        Debug.Log("Red");
+      }
+      else if (closesfort == Greendistance)
+      {
+        Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+        Knight.SetPath(navMeshPath);
+        Debug.Log("green");
+      }
+      else if (closesfort == Yellowdistance)
+      {
+        Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+        Knight.SetPath(navMeshPath);
+        Debug.Log("yellow");
+      }
 
 
-      
+
 
 
 
