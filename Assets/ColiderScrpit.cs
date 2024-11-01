@@ -19,6 +19,8 @@ public class ColiderScrpit : MonoBehaviour
         {
         //   Debug.Log(CloseEnemys);
         }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
