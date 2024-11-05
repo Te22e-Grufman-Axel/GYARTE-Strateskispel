@@ -18,6 +18,9 @@ public class Knight_Ai : MonoBehaviour
   [SerializeField]
   GameObject YellowFlag;
 
+  float timmer;
+  int hp;
+
   public List<GameObject> CloseEnemys2 = new List<GameObject>();
 
   private void Awake()
@@ -44,7 +47,7 @@ public class Knight_Ai : MonoBehaviour
       float Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position);
 
       float closesfort = Math.Min(Reddistance, Math.Min(Greendistance, Yellowdistance));
-    
+
       if (closesfort == Reddistance)
       {
         Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
@@ -64,14 +67,20 @@ public class Knight_Ai : MonoBehaviour
 
 
 
-    if(CloseEnemys2.Count > 0)
+    if (CloseEnemys2.Count > 0)
     {
-        if(true)
+      for (int i = 0; i < CloseEnemys2.Count; i++)
+      {
+        if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys2[i].transform.position) < 5)
         {
+          timmer += Time.deltaTime;
 
+          if (timmer > 5)
+          {
+            // hp = hp - UnityEngine.Random(5,20);
+          }
         }
+      }
     }
-
-
   }
 }
