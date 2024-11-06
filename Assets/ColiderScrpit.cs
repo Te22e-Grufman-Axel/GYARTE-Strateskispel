@@ -8,20 +8,6 @@ public class ColiderScrpit : MonoBehaviour
 
     public List<GameObject> CloseEnemys = new List<GameObject>();
     public Knight_Ai knight_Ai;
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        if (CloseEnemys.Count > 0)
-        {
-        //   Debug.Log(CloseEnemys);
-        }
-
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {

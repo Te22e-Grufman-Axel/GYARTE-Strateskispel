@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bb0ee21c198295042bb5a0a92cd966cb
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - RedFlag: {fileID: 919132149155446097, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
+  - GreenFlag: {fileID: 919132149155446097, guid: ab23998a325faaa4ba17d9831ea00103, type: 3}
+  - YellowFlag: {fileID: 919132149155446097, guid: dc7a1af46f227a24a9c3536e1fc95187, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
