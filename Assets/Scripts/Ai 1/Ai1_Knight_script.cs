@@ -17,7 +17,11 @@ public class Knight_Ai : MonoBehaviour
   GameObject GreenFlag;
   [SerializeField]
   GameObject YellowFlag;
+  [SerializeField]
+  GameObject Blueflag;
+  [SerializeField]
   float timmer;
+  [SerializeField]
   int hp = 100;
 
   public List<GameObject> CloseEnemys2 = new List<GameObject>();
@@ -31,7 +35,7 @@ public class Knight_Ai : MonoBehaviour
 
   void Update()
   {
-    if (hp < 0) { Destroy(this);}
+    if (hp < 0) { Destroy(this); }
 
 
     if (CloseEnemys2.Count > 0)
@@ -46,23 +50,29 @@ public class Knight_Ai : MonoBehaviour
       float Reddistance = UnityEngine.Vector3.Distance(Knight.transform.position, RedFlag.transform.position);
       float Greendistance = UnityEngine.Vector3.Distance(Knight.transform.position, GreenFlag.transform.position);
       float Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position);
+      float bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position);
 
-      float closesfort = Math.Min(Reddistance, Math.Min(Greendistance, Yellowdistance));
 
-      if (closesfort == Reddistance)
+      float closesfort = Math.Min(Math.Min(Reddistance, bluedistance), Math.Min(Greendistance, Yellowdistance));
+
+      if (closesfort == Reddistance && gameObject.tag != "Ai_2")
       {
         Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
-      else if (closesfort == Greendistance)
+      else if (closesfort == Greendistance && gameObject.tag != "Ai_1")
       {
         Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
-      else if (closesfort == Yellowdistance)
+      else if (closesfort == Yellowdistance && gameObject.tag != "Ai_3")
       {
         Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
+      }
+      else if(closesfort == bluedistance && gameObject.tag != "Player")
+      {
+
       }
     }
 
@@ -76,7 +86,7 @@ public class Knight_Ai : MonoBehaviour
         {
           timmer += Time.deltaTime;
 
-          if (timmer > 10)
+          if (timmer > 5)
           {
             hp = hp - UnityEngine.Random.Range(10, 20);
             timmer = 0;

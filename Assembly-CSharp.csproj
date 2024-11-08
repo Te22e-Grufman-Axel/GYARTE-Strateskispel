@@ -64,10 +64,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.16f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Flagcoliderscrpit.cs" />
-    <Compile Include="Assets\D_Knight_Ai.cs" />
-    <Compile Include="Assets\ColiderScrpit.cs" />
-    <Compile Include="Assets\A_Knight_Ai script.cs" />
+    <Compile Include="Assets\Scripts\Flagcoliderscrpit.cs" />
+    <Compile Include="Assets\Scripts\Ai 1\Ai1_Knight_script.cs" />
+    <Compile Include="Assets\Scripts\Player_ColiderScrpit.cs" />
+    <Compile Include="Assets\Scripts\D_Knight_Ai.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
