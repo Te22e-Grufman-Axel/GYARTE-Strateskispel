@@ -65,9 +65,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Flagcoliderscrpit.cs" />
-    <Compile Include="Assets\Scripts\Ai 1\Ai1_Knight_script.cs" />
-    <Compile Include="Assets\Scripts\Player_ColiderScrpit.cs" />
+    <Compile Include="Assets\Scripts\Knight_Ai_script.cs" />
     <Compile Include="Assets\Scripts\D_Knight_Ai.cs" />
+    <Compile Include="Assets\Scripts\ColiderScrpit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

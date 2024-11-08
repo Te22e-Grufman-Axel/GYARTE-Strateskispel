@@ -36,6 +36,7 @@ public class Knight_Ai : MonoBehaviour
   void Update()
   {
     if (hp < 0) { Destroy(this); }
+    Debug.Log("Workings");
 
 
     if (CloseEnemys2.Count > 0)
@@ -44,6 +45,7 @@ public class Knight_Ai : MonoBehaviour
       {
         Knight.SetPath(navMeshPath);
       }
+      Debug.Log("Going for enemy");
     }
     else
     {
@@ -51,28 +53,45 @@ public class Knight_Ai : MonoBehaviour
       float Greendistance = UnityEngine.Vector3.Distance(Knight.transform.position, GreenFlag.transform.position);
       float Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position);
       float bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position);
-
+              Debug.Log("findign casel");
 
       float closesfort = Math.Min(Math.Min(Reddistance, bluedistance), Math.Min(Greendistance, Yellowdistance));
+              Debug.Log(closesfort);
+
+
+      /*
+        Lista av alla flaggors positioj
+        en int fr index
+        en float fr distance
+
+        loopa igenom alla flaggor kolla om dist är mindre en distance varablen
+        om den är det sätt i till loopens index
+
+      */
 
       if (closesfort == Reddistance && gameObject.tag != "Ai_2")
       {
         Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
+        Debug.Log("Red");
       }
       else if (closesfort == Greendistance && gameObject.tag != "Ai_1")
       {
         Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
+        Debug.Log("green");
       }
       else if (closesfort == Yellowdistance && gameObject.tag != "Ai_3")
       {
         Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
+        Debug.Log("yellow");
       }
-      else if(closesfort == bluedistance && gameObject.tag != "Player")
+      else if (closesfort == bluedistance && gameObject.tag != "Player")
       {
-
+        Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+        Knight.SetPath(navMeshPath);
+        Debug.Log("Blue");
       }
     }
 
