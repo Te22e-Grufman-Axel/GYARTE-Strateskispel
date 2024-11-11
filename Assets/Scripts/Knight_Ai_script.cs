@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +24,7 @@ public class Knight_Ai : MonoBehaviour
   float timmer;
   [SerializeField]
   int hp = 100;
+  float closesfort;
 
   public List<GameObject> CloseEnemys2 = new List<GameObject>();
 
@@ -36,7 +38,6 @@ public class Knight_Ai : MonoBehaviour
   void Update()
   {
     if (hp < 0) { Destroy(this); }
-    Debug.Log("Workings");
 
 
     if (CloseEnemys2.Count > 0)
@@ -45,7 +46,6 @@ public class Knight_Ai : MonoBehaviour
       {
         Knight.SetPath(navMeshPath);
       }
-      Debug.Log("Going for enemy");
     }
     else
     {
@@ -53,45 +53,127 @@ public class Knight_Ai : MonoBehaviour
       float Greendistance = UnityEngine.Vector3.Distance(Knight.transform.position, GreenFlag.transform.position);
       float Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position);
       float bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position);
-              Debug.Log("findign casel");
-
-      float closesfort = Math.Min(Math.Min(Reddistance, bluedistance), Math.Min(Greendistance, Yellowdistance));
-              Debug.Log(closesfort);
 
 
-      /*
-        Lista av alla flaggors positioj
-        en int fr index
-        en float fr distance
+      List<float> closefortList = new List<float> { Reddistance, bluedistance, Greendistance, Yellowdistance };
+      closefortList.Sort();
 
-        loopa igenom alla flaggor kolla om dist är mindre en distance varablen
-        om den är det sätt i till loopens index
 
-      */
-
-      if (closesfort == Reddistance && gameObject.tag != "Ai_2")
-      {
-        Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
-        Knight.SetPath(navMeshPath);
-        Debug.Log("Red");
-      }
-      else if (closesfort == Greendistance && gameObject.tag != "Ai_1")
+      if (gameObject.tag != "Ai_1" && closefortList[0] == Greendistance)
       {
         Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
-        Debug.Log("green");
       }
-      else if (closesfort == Yellowdistance && gameObject.tag != "Ai_3")
+      else if (gameObject.tag == "Ai_1" && closefortList[0] == Greendistance)
+      {
+        closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
+        if (closesfort == Reddistance)
+        {
+          Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Greendistance)
+        {
+          Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Yellowdistance)
+        {
+          Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == bluedistance)
+        {
+          Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+      }
+      else if (gameObject.tag != "Ai_2" && closefortList[0] == Reddistance)
+      {
+        Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+        Knight.SetPath(navMeshPath);
+      }
+      else if (gameObject.tag == "Ai_2" && closefortList[0] == Reddistance)
+      {
+        closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
+        if (closesfort == Reddistance)
+        {
+          Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Greendistance)
+        {
+          Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Yellowdistance)
+        {
+          Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == bluedistance)
+        {
+          Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+      }
+      else if (gameObject.tag != "Ai_3" && closefortList[0] == Yellowdistance)
       {
         Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
-        Debug.Log("yellow");
       }
-      else if (closesfort == bluedistance && gameObject.tag != "Player")
+      else if (gameObject.tag == "Ai_3" && closefortList[0] == Yellowdistance)
+      {
+        closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
+        if (closesfort == Reddistance)
+        {
+          Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Greendistance)
+        {
+          Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Yellowdistance)
+        {
+          Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == bluedistance)
+        {
+          Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+      }
+      else if (gameObject.tag != "Player" && closefortList[0] == bluedistance)
       {
         Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
-        Debug.Log("Blue");
+      }
+      else if (gameObject.tag == "Player" && closefortList[0] == bluedistance)
+      {
+        closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
+        if (closesfort == Reddistance)
+        {
+          Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Greendistance)
+        {
+          Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == Yellowdistance)
+        {
+          Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
+        else if (closesfort == bluedistance)
+        {
+          Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+          Knight.SetPath(navMeshPath);
+        }
       }
     }
 
