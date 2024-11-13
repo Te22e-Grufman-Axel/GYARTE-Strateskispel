@@ -53,7 +53,11 @@ public class D_Knight_Ai : MonoBehaviour
                 Knight.SetPath(navMeshPath);
             }
         }
+        if()
+        {
 
+        }
+        else{
         if (CloseEnemys_P.Count > 0 || CloseEnemys_Ai1.Count > 0 || CloseEnemys_Ai2.Count > 0 || CloseEnemys_Ai3.Count > 0)
         {
             if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)
@@ -96,6 +100,7 @@ public class D_Knight_Ai : MonoBehaviour
                     timmer = 0;
                 }
             }
+        }
         }
     }
 }
