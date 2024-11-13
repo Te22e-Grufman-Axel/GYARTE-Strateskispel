@@ -14,6 +14,15 @@ public class D_Knight_Ai : MonoBehaviour
     UnityEngine.AI.NavMeshPath navMeshPath;
     float timmer;
     int hp = 100;
+    [SerializeField]
+    GameObject RedFlag;
+    [SerializeField]
+    GameObject GreenFlag;
+    [SerializeField]
+    GameObject YellowFlag;
+    [SerializeField]
+    GameObject Blueflag;
+
 
     void Awake()
     {
@@ -53,54 +62,77 @@ public class D_Knight_Ai : MonoBehaviour
                 Knight.SetPath(navMeshPath);
             }
         }
-        if()
+
+
+        if (CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count == 0)
         {
-
-        }
-        else{
-        if (CloseEnemys_P.Count > 0 || CloseEnemys_Ai1.Count > 0 || CloseEnemys_Ai2.Count > 0 || CloseEnemys_Ai3.Count > 0)
-        {
-            if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)
+            if (this.gameObject.tag == "player")
             {
-                timmer += Time.deltaTime;
-
-                if (timmer > 10)
-                {
-                    hp = hp - UnityEngine.Random.Range(10, 20);
-                    timmer = 0;
-                }
+                Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
-            if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai1[0].transform.position) < 10)
+            else if (this.gameObject.tag == "Ai_1")
             {
-                timmer += Time.deltaTime;
-
-                if (timmer > 10)
-                {
-                    hp = hp - UnityEngine.Random.Range(10, 20);
-                    timmer = 0;
-                }
+                Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
-            if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai2[0].transform.position) < 10)
+            else if (this.gameObject.tag == "Ai_2")
             {
-                timmer += Time.deltaTime;
-
-                if (timmer > 10)
-                {
-                    hp = hp - UnityEngine.Random.Range(10, 20);
-                    timmer = 0;
-                }
+                Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
-            if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai3[0].transform.position) < 10)
+            else if (this.gameObject.tag == "Ai_3")
             {
-                timmer += Time.deltaTime;
-
-                if (timmer > 10)
-                {
-                    hp = hp - UnityEngine.Random.Range(10, 20);
-                    timmer = 0;
-                }
+                Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
         }
+
+        else
+        {
+            if (CloseEnemys_P.Count > 0 || CloseEnemys_Ai1.Count > 0 || CloseEnemys_Ai2.Count > 0 || CloseEnemys_Ai3.Count > 0)
+            {
+                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)
+                {
+                    timmer += Time.deltaTime;
+
+                    if (timmer > 10)
+                    {
+                        hp = hp - UnityEngine.Random.Range(10, 20);
+                        timmer = 0;
+                    }
+                }
+                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai1[0].transform.position) < 10)
+                {
+                    timmer += Time.deltaTime;
+
+                    if (timmer > 10)
+                    {
+                        hp = hp - UnityEngine.Random.Range(10, 20);
+                        timmer = 0;
+                    }
+                }
+                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai2[0].transform.position) < 10)
+                {
+                    timmer += Time.deltaTime;
+
+                    if (timmer > 10)
+                    {
+                        hp = hp - UnityEngine.Random.Range(10, 20);
+                        timmer = 0;
+                    }
+                }
+                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai3[0].transform.position) < 10)
+                {
+                    timmer += Time.deltaTime;
+
+                    if (timmer > 10)
+                    {
+                        hp = hp - UnityEngine.Random.Range(10, 20);
+                        timmer = 0;
+                    }
+                }
+            }
         }
     }
 }
