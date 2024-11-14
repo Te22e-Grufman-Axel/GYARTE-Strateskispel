@@ -34,55 +34,32 @@ public class D_Knight_Ai : MonoBehaviour
     {
         if (hp < 0) Destroy(this);
 
-        if (this.gameObject.tag == "Player")
-        {
-            if (Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-            {
-                Knight.SetPath(navMeshPath);
-            }
-        }
-        else if (this.gameObject.tag == "Ai_1")
-        {
-            if (Knight.CalculatePath(CloseEnemys_Ai1[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-            {
-                Knight.SetPath(navMeshPath);
-            }
-        }
-        else if (this.gameObject.tag == "Ai_2")
-        {
-            if (Knight.CalculatePath(CloseEnemys_Ai2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-            {
-                Knight.SetPath(navMeshPath);
-            }
-        }
-        else if (this.gameObject.tag == "Ai_3")
-        {
-            if (Knight.CalculatePath(CloseEnemys_Ai3[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-            {
-                Knight.SetPath(navMeshPath);
-            }
-        }
-
+        Debug.Log(CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count);
 
         if (CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count == 0)
         {
-            if (this.gameObject.tag == "player")
+            // Debug.Log("locking for team");
+            if (this.gameObject.tag == "Player")
             {
+                // Debug.Log("moving to player flag");
                 Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_1")
             {
+                    // Debug.Log("moving to ai_1 flag");
                 Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_2")
             {
+                    // Debug.Log("moving to ai_2 flag");
                 Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_3")
             {
+                    // Debug.Log("moving to ai_3 flag");
                 Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
@@ -90,6 +67,38 @@ public class D_Knight_Ai : MonoBehaviour
 
         else
         {
+
+            if (this.gameObject.tag == "Player" && CloseEnemys_P.Count > 0)
+            {
+                if (Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
+                {
+                    Knight.SetPath(navMeshPath);
+                }
+            }
+            else if (this.gameObject.tag == "Ai_1" && CloseEnemys_Ai1.Count > 0)
+            {
+                if (Knight.CalculatePath(CloseEnemys_Ai1[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
+                {
+                    Knight.SetPath(navMeshPath);
+                }
+            }
+            else if (this.gameObject.tag == "Ai_2" && CloseEnemys_Ai2.Count > 0)
+            {
+                if (Knight.CalculatePath(CloseEnemys_Ai2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
+                {
+                    Knight.SetPath(navMeshPath);
+                }
+            }
+            else if (this.gameObject.tag == "Ai_3" && CloseEnemys_Ai3.Count > 0)
+            {
+                if (Knight.CalculatePath(CloseEnemys_Ai3[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
+                {
+                    Knight.SetPath(navMeshPath);
+                }
+            }
+
+
+
             if (CloseEnemys_P.Count > 0 || CloseEnemys_Ai1.Count > 0 || CloseEnemys_Ai2.Count > 0 || CloseEnemys_Ai3.Count > 0)
             {
                 if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)

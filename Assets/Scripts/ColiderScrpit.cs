@@ -11,15 +11,41 @@ public class ColiderScrpit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3")
+
+        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Player")
         {
             knight_Ai.CloseEnemys2.Add(other.gameObject);
         }
+        else if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_1")
+        {
+            knight_Ai.CloseEnemys2.Add(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_2")
+        {
+            knight_Ai.CloseEnemys2.Add(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Player" || this.gameObject.tag == "Ai_3")
+        {
+            knight_Ai.CloseEnemys2.Add(other.gameObject);
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3")
+        if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Player")
+        {
+            knight_Ai.CloseEnemys2.Remove(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_1")
+        {
+            knight_Ai.CloseEnemys2.Remove(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_2")
+        {
+            knight_Ai.CloseEnemys2.Remove(other.gameObject);
+        }
+        else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Player" || this.gameObject.tag == "Ai_3")
         {
             knight_Ai.CloseEnemys2.Remove(other.gameObject);
         }
