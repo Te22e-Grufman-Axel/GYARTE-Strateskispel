@@ -6,17 +6,18 @@ using UnityEngine;
 public class Flagcoliderscrpit : MonoBehaviour
 {
     float Timmer;
+    [SerializeField]
     int Hp = 100;
-    public string Tag;
+
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag != Tag)
+        if (other.gameObject.tag != transform.parent.gameObject.tag)
         {
             Timmer += 1 * Time.deltaTime;
             if (Timmer > 1)
             {
-                Hp = Hp - 1;
+                Hp = Hp - 5;
                 Timmer = 0;
                 if (Hp < 0)
                 {

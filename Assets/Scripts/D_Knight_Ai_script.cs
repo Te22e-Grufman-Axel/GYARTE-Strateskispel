@@ -13,6 +13,7 @@ public class D_Knight_Ai : MonoBehaviour
     UnityEngine.AI.NavMeshAgent Knight;
     UnityEngine.AI.NavMeshPath navMeshPath;
     float timmer;
+    [SerializeField]
     int hp = 100;
     [SerializeField]
     GameObject RedFlag;
@@ -22,6 +23,7 @@ public class D_Knight_Ai : MonoBehaviour
     GameObject YellowFlag;
     [SerializeField]
     GameObject Blueflag;
+    public Knight_Ai Knight_Ai;
 
 
     void Awake()
@@ -32,9 +34,13 @@ public class D_Knight_Ai : MonoBehaviour
 
     void Update()
     {
-        if (hp < 0) Destroy(this);
+        if (hp <= 0)
+        {
+            Knight_Ai.CloseEnemys2.Remove(this.gameObject);
+            Destroy(gameObject);
+        }
 
-        Debug.Log(CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count);
+        // Debug.Log(CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count);
 
         if (CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count == 0)
         {
@@ -47,19 +53,19 @@ public class D_Knight_Ai : MonoBehaviour
             }
             else if (this.gameObject.tag == "Ai_1")
             {
-                    // Debug.Log("moving to ai_1 flag");
+                // Debug.Log("moving to ai_1 flag");
                 Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_2")
             {
-                    // Debug.Log("moving to ai_2 flag");
+                // Debug.Log("moving to ai_2 flag");
                 Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_3")
             {
-                    // Debug.Log("moving to ai_3 flag");
+                // Debug.Log("moving to ai_3 flag");
                 Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
@@ -70,31 +76,23 @@ public class D_Knight_Ai : MonoBehaviour
 
             if (this.gameObject.tag == "Player" && CloseEnemys_P.Count > 0)
             {
-                if (Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-                {
-                    Knight.SetPath(navMeshPath);
-                }
+                Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_1" && CloseEnemys_Ai1.Count > 0)
             {
-                if (Knight.CalculatePath(CloseEnemys_Ai1[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-                {
-                    Knight.SetPath(navMeshPath);
-                }
+                Knight.CalculatePath(CloseEnemys_Ai1[0].transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_2" && CloseEnemys_Ai2.Count > 0)
             {
-                if (Knight.CalculatePath(CloseEnemys_Ai2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-                {
-                    Knight.SetPath(navMeshPath);
-                }
+                Knight.CalculatePath(CloseEnemys_Ai2[0].transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
             else if (this.gameObject.tag == "Ai_3" && CloseEnemys_Ai3.Count > 0)
             {
-                if (Knight.CalculatePath(CloseEnemys_Ai3[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
-                {
-                    Knight.SetPath(navMeshPath);
-                }
+                Knight.CalculatePath(CloseEnemys_Ai3[0].transform.position, navMeshPath);
+                Knight.SetPath(navMeshPath);
             }
 
 

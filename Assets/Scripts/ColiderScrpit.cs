@@ -32,7 +32,6 @@ public class ColiderScrpit : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-
         if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Player")
         {
             knight_Ai.CloseEnemys2.Remove(other.gameObject);
