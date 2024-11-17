@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class D_Knight_Ai : MonoBehaviour
 {
@@ -24,6 +24,8 @@ public class D_Knight_Ai : MonoBehaviour
     [SerializeField]
     GameObject Blueflag;
     public Knight_Ai Knight_Ai;
+    public Vector3 LockRoation;
+    public Vector3 startspeed;
 
 
     void Awake()
@@ -32,6 +34,14 @@ public class D_Knight_Ai : MonoBehaviour
         Knight = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
+    private void Start()
+    {
+        startspeed.Set(0,0,0);
+        Knight.velocity = startspeed;
+        LockRoation.Set(0, Knight.transform.rotation.y, 0);
+        Quaternion rotation = Quaternion.Euler(LockRoation);
+        Knight.transform.rotation = rotation;
+    }
     void Update()
     {
         if (hp <= 0)
@@ -39,6 +49,11 @@ public class D_Knight_Ai : MonoBehaviour
             Knight_Ai.CloseEnemys2.Remove(this.gameObject);
             Destroy(gameObject);
         }
+
+   LockRoation.Set(0, Knight.transform.rotation.y, 0);
+    Quaternion rotation = Quaternion.Euler(LockRoation);
+    Knight.transform.rotation = rotation;
+
 
         // Debug.Log(CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count);
 

@@ -1097,6 +1097,10 @@ PrefabInstance:
       value: Defense_Knight
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1854,6 +1858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1548736396}
   Defenender: {fileID: 302724367}
+  Spawnlocation: {fileID: 1148871055}
   parent: {fileID: 591056079}
   Tag: Player
 --- !u!1001 &1548736395
@@ -1911,6 +1916,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_Name
       value: Ofensive_Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_TagString
@@ -2012,7 +2021,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548736396}
   serializedVersion: 4
-  m_Mass: 0.0000001
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2026,7 +2035,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -2334,6 +2343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1548736396}
   Defenender: {fileID: 302724367}
+  Spawnlocation: {fileID: 1148871055}
   parent: {fileID: 591056079}
   Tag: Player
 --- !u!1001 &1664063914
@@ -2484,13 +2494,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799942441}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.20669359, y: -0, z: -0, w: 0.9784057}
+  m_LocalPosition: {x: 783.7, y: 77.1, z: 685.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 23.857, y: 0, z: 0}
 --- !u!1001 &1813644738
 PrefabInstance:
   m_ObjectHideFlags: 0

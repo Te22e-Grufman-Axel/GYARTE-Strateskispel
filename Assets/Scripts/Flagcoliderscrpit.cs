@@ -21,7 +21,7 @@ public class Flagcoliderscrpit : MonoBehaviour
                 Timmer = 0;
                 if (Hp < 0)
                 {
-                    Destroy(transform.parent.gameObject);
+                    // Destroy(transform.parent.gameObject);
                 }
             }
         }

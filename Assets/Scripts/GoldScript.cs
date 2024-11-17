@@ -5,17 +5,23 @@ using TMPro;
 
 public class GoldScript : MonoBehaviour
 {
-    private int gold = 0;
+    public int gold = 0;
     public TextMeshProUGUI GoldText;
 
-    void Update() {
 
-    GoldText.text = "Gold: " + gold;
 
-    if(Input.GetKeyDown(KeyCode.Space))
+
+
+
+    void Update()
     {
-        gold++;
-    }    
+
+        GoldText.text = "Gold: " + gold;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gold++;
+        }
     }
 
 

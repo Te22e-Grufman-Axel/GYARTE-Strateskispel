@@ -1,10 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,7 +25,9 @@ public class Knight_Ai : MonoBehaviour
   float Greendistance;
   float bluedistance;
   float Yellowdistance;
+  public Vector3 LockRoation;
   public D_Knight_Ai D_Knight_Ai;
+  public Vector3 startspeed;
 
   public List<GameObject> CloseEnemys2 = new List<GameObject>();
 
@@ -37,8 +35,17 @@ public class Knight_Ai : MonoBehaviour
   {
     navMeshPath = new UnityEngine.AI.NavMeshPath();
     Knight = GetComponent<UnityEngine.AI.NavMeshAgent>();
-  }
 
+
+  }
+  private void Start()
+  {
+    startspeed.Set(0, 0, 0);
+    Knight.velocity = startspeed;
+    LockRoation.Set(0, Knight.transform.rotation.y, 0);
+    Quaternion rotation = Quaternion.Euler(LockRoation);
+    Knight.transform.rotation = rotation;
+  }
 
   void Update()
   {
@@ -48,13 +55,20 @@ public class Knight_Ai : MonoBehaviour
       // D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
       // D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
       // D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
-      
+
       // D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
 
       Destroy(gameObject);
     }
 
-// Debug.Log("Attack" + CloseEnemys2.Count);
+    LockRoation.Set(0, Knight.transform.rotation.y, 0);
+    Quaternion rotation = Quaternion.Euler(LockRoation);
+    Knight.transform.rotation = rotation;
+
+
+
+
+    // Debug.Log("Attack" + CloseEnemys2.Count);
 
     if (CloseEnemys2.Count > 0)
     {
