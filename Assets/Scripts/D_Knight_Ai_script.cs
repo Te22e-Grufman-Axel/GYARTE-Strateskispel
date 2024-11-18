@@ -24,8 +24,7 @@ public class D_Knight_Ai : MonoBehaviour
     [SerializeField]
     GameObject Blueflag;
     public Knight_Ai Knight_Ai;
-    public Vector3 LockRoation;
-    public Vector3 startspeed;
+    Vector3 startspeed;
 
 
     void Awake()
@@ -36,11 +35,7 @@ public class D_Knight_Ai : MonoBehaviour
 
     private void Start()
     {
-        startspeed.Set(0,0,0);
-        Knight.velocity = startspeed;
-        LockRoation.Set(0, Knight.transform.rotation.y, 0);
-        Quaternion rotation = Quaternion.Euler(LockRoation);
-        Knight.transform.rotation = rotation;
+
     }
     void Update()
     {
@@ -50,9 +45,6 @@ public class D_Knight_Ai : MonoBehaviour
             Destroy(gameObject);
         }
 
-   LockRoation.Set(0, Knight.transform.rotation.y, 0);
-    Quaternion rotation = Quaternion.Euler(LockRoation);
-    Knight.transform.rotation = rotation;
 
 
         // Debug.Log(CloseEnemys_P.Count + CloseEnemys_Ai1.Count + CloseEnemys_Ai2.Count + CloseEnemys_Ai3.Count);
@@ -88,9 +80,9 @@ public class D_Knight_Ai : MonoBehaviour
 
         else
         {
-
             if (this.gameObject.tag == "Player" && CloseEnemys_P.Count > 0)
             {
+                Debug.Log(Knight + " " + CloseEnemys_P[0].transform.position);
                 Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
@@ -114,44 +106,56 @@ public class D_Knight_Ai : MonoBehaviour
 
             if (CloseEnemys_P.Count > 0 || CloseEnemys_Ai1.Count > 0 || CloseEnemys_Ai2.Count > 0 || CloseEnemys_Ai3.Count > 0)
             {
-                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)
+                if (CloseEnemys_P.Count > 0)
                 {
-                    timmer += Time.deltaTime;
-
-                    if (timmer > 10)
+                    if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_P[0].transform.position) < 10)
                     {
-                        hp = hp - UnityEngine.Random.Range(10, 20);
-                        timmer = 0;
+                        timmer += Time.deltaTime;
+
+                        if (timmer > 10)
+                        {
+                            hp = hp - UnityEngine.Random.Range(10, 20);
+                            timmer = 0;
+                        }
                     }
                 }
-                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai1[0].transform.position) < 10)
+                if (CloseEnemys_Ai1.Count > 0)
                 {
-                    timmer += Time.deltaTime;
-
-                    if (timmer > 10)
+                    if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai1[0].transform.position) < 10)
                     {
-                        hp = hp - UnityEngine.Random.Range(10, 20);
-                        timmer = 0;
+                        timmer += Time.deltaTime;
+
+                        if (timmer > 10)
+                        {
+                            hp = hp - UnityEngine.Random.Range(10, 20);
+                            timmer = 0;
+                        }
                     }
                 }
-                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai2[0].transform.position) < 10)
+                if (CloseEnemys_Ai2.Count > 0)
                 {
-                    timmer += Time.deltaTime;
-
-                    if (timmer > 10)
+                    if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai2[0].transform.position) < 10)
                     {
-                        hp = hp - UnityEngine.Random.Range(10, 20);
-                        timmer = 0;
+                        timmer += Time.deltaTime;
+
+                        if (timmer > 10)
+                        {
+                            hp = hp - UnityEngine.Random.Range(10, 20);
+                            timmer = 0;
+                        }
                     }
                 }
-                if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai3[0].transform.position) < 10)
+                if (CloseEnemys_Ai3.Count > 0)
                 {
-                    timmer += Time.deltaTime;
-
-                    if (timmer > 10)
+                    if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys_Ai3[0].transform.position) < 10)
                     {
-                        hp = hp - UnityEngine.Random.Range(10, 20);
-                        timmer = 0;
+                        timmer += Time.deltaTime;
+
+                        if (timmer > 10)
+                        {
+                            hp = hp - UnityEngine.Random.Range(10, 20);
+                            timmer = 0;
+                        }
                     }
                 }
             }

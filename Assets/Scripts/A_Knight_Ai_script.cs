@@ -25,9 +25,9 @@ public class Knight_Ai : MonoBehaviour
   float Greendistance;
   float bluedistance;
   float Yellowdistance;
-  public Vector3 LockRoation;
+  Vector3 LockRoation;
   public D_Knight_Ai D_Knight_Ai;
-  public Vector3 startspeed;
+  Vector3 startspeed;
 
   public List<GameObject> CloseEnemys2 = new List<GameObject>();
 
@@ -51,19 +51,19 @@ public class Knight_Ai : MonoBehaviour
   {
     if (hp <= 0)
     {
-      // if(D_Knight_Ai.CloseEnemys_Ai1.Contains)
-      // D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
-      // D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
-      // D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
+      // if(D_Knight_Ai.CloseEnemys_Ai1.Contains == gameObject)
 
-      // D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
+      D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
+      D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
+      D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
+      D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
 
       Destroy(gameObject);
     }
 
-    LockRoation.Set(0, Knight.transform.rotation.y, 0);
-    Quaternion rotation = Quaternion.Euler(LockRoation);
-    Knight.transform.rotation = rotation;
+    // LockRoation.Set(0, Knight.transform.rotation.y, 0);
+    // Quaternion rotation = Quaternion.Euler(LockRoation);
+    // Knight.transform.rotation = rotation;
 
 
 

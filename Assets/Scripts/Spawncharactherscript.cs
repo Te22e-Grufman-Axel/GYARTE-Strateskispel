@@ -11,12 +11,12 @@ public class Spawncharactherscript : MonoBehaviour
 
     public Transform parent;
     public string Tag = "Player";
-    public Vector3 Goodname;
-    public Vector3 SpawnRoation;
+    Vector3 Goodname;
+    Vector3 SpawnRoation;
     public GoldScript gold;
     private void Start()
     {
-        Goodname.Set(802, 40, 758);
+        Goodname.Set(802, 51, 758);
     }
 
     public void Spawnattacker()
@@ -41,6 +41,8 @@ public class Spawncharactherscript : MonoBehaviour
             GameObject newObject = Instantiate(Defenender, parent);
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
+            
+            // Time.timeScale = 0;
         }
     }
 
