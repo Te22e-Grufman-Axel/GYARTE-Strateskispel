@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 792.7
+      value: 777.5022
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 40
+      value: 39.99267
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 758.15
+      value: 744.767
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -175,4 +175,4 @@ MonoBehaviour:
   GreenFlag: {fileID: 0}
   YellowFlag: {fileID: 0}
   Blueflag: {fileID: 0}
-  Knight_Ai: {fileID: 0}
+  Knight_Ai: {fileID: 8210976426348536312, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}

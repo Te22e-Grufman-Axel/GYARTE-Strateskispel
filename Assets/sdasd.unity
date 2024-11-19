@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 38297300}
   m_Layer: 0
   m_Name: Casel_Colider
-  m_TagString: Untagged
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 165377646}
   m_Layer: 0
   m_Name: FlagColider
-  m_TagString: Untagged
+  m_TagString: Ai_3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 416505005}
   m_Layer: 0
   m_Name: FlagColider
-  m_TagString: Untagged
+  m_TagString: Ai_1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 489239387}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -959,7 +959,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: dc7a1af46f227a24a9c3536e1fc95187, type: 3}
       insertIndex: -1
       addedObject: {fileID: 165377644}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dc7a1af46f227a24a9c3536e1fc95187, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 744399505}
   m_SourcePrefab: {fileID: 100100000, guid: dc7a1af46f227a24a9c3536e1fc95187, type: 3}
 --- !u!4 &744399501 stripped
 Transform:
@@ -971,6 +974,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: dc7a1af46f227a24a9c3536e1fc95187, type: 3}
   m_PrefabInstance: {fileID: 744399500}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &744399505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744399502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa64f8869da3e694c98019b4a9b8b3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacker: {fileID: 1548736396}
+  Ai_1_Spawnpoint: {fileID: 1813644740}
+  Ai_2_Spawnpoint: {fileID: 1860907688}
+  Ai_3_Spawnpoint: {fileID: 744399502}
+  timmer: 0
+  parent: {fileID: 529434297}
+  Tag: Ai_3
 --- !u!1 &761486314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,7 +1152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 781935940}
   m_Layer: 0
-  m_Name: Ai 1
+  m_Name: Ai_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1164,7 +1186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 828786701}
   m_Layer: 0
-  m_Name: Ai 2
+  m_Name: Ai_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1198,7 +1220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1027018959}
   m_Layer: 0
-  m_Name: Ai 3
+  m_Name: Ai_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1274,6 +1296,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Casel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ade96fe276739db4c8e6a75b6cf0d536, type: 3}
+      propertyPath: m_TagString
+      value: Mis
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: ade96fe276739db4c8e6a75b6cf0d536, type: 3}
@@ -1304,7 +1330,7 @@ GameObject:
   - component: {fileID: 1210628953}
   m_Layer: 0
   m_Name: Flagcolider
-  m_TagString: Untagged
+  m_TagString: Ai_2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1634,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3c4c307a87eb94788ebd2e683d88d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Attacker: {fileID: 1548736396}
+  Attacker: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
   Defenender: {fileID: 302724367}
   Spawnlocation: {fileID: 1148871055}
   parent: {fileID: 591056079}
@@ -1714,7 +1740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 95957a5d8b5ab8b46b4e22ed2a12d2c4, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: Mis
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2167,7 +2193,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab23998a325faaa4ba17d9831ea00103, type: 3}
       insertIndex: -1
       addedObject: {fileID: 416505003}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab23998a325faaa4ba17d9831ea00103, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1813644743}
   m_SourcePrefab: {fileID: 100100000, guid: ab23998a325faaa4ba17d9831ea00103, type: 3}
 --- !u!4 &1813644739 stripped
 Transform:
@@ -2179,6 +2208,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab23998a325faaa4ba17d9831ea00103, type: 3}
   m_PrefabInstance: {fileID: 1813644738}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1813644743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813644740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa64f8869da3e694c98019b4a9b8b3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacker: {fileID: 1548736396}
+  Ai_1_Spawnpoint: {fileID: 1813644740}
+  Ai_2_Spawnpoint: {fileID: 1860907688}
+  Ai_3_Spawnpoint: {fileID: 744399502}
+  timmer: 0
+  parent: {fileID: 1293842757}
+  Tag: Ai_1
 --- !u!1001 &1829905662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2443,7 +2491,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1210628951}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1860907691}
   m_SourcePrefab: {fileID: 100100000, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
 --- !u!4 &1860907687 stripped
 Transform:
@@ -2455,6 +2506,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ed480d4f7470c6478803ee8ea0d8bbe, type: 3}
   m_PrefabInstance: {fileID: 1860907686}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860907691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860907688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa64f8869da3e694c98019b4a9b8b3ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Attacker: {fileID: 1548736396}
+  Ai_1_Spawnpoint: {fileID: 1813644740}
+  Ai_2_Spawnpoint: {fileID: 1860907688}
+  Ai_3_Spawnpoint: {fileID: 744399502}
+  timmer: 0
+  parent: {fileID: 1487675007}
+  Tag: Ai_2
 --- !u!1 &2043742804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,7 +2538,7 @@ GameObject:
   - component: {fileID: 2043742806}
   m_Layer: 0
   m_Name: Flagcolider
-  m_TagString: Untagged
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2556,7 +2626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 792.7
+      value: 792.4
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2564,7 +2634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 758.15
+      value: 754.3
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2609,7 +2679,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 426654035564741871, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 784.14
+      value: 785.9
       objectReference: {fileID: 0}
     - target: {fileID: 426654035564741871, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_LocalPosition.y

@@ -45,6 +45,12 @@ public class Knight_Ai : MonoBehaviour
     LockRoation.Set(0, Knight.transform.rotation.y, 0);
     Quaternion rotation = Quaternion.Euler(LockRoation);
     Knight.transform.rotation = rotation;
+    CloseEnemys2.Clear();
+
+    RedFlag = GameObject.Find("Ai_2/Gyarte_RedFlag");
+    GreenFlag = GameObject.Find("Ai_1/Gyarte_GreenFlag");
+    YellowFlag = GameObject.Find("Ai_3/Gyarte_YellowFlag");
+    Blueflag = GameObject.Find("Gyarte_BlueFlag");
   }
 
   void Update()
@@ -61,17 +67,21 @@ public class Knight_Ai : MonoBehaviour
       Destroy(gameObject);
     }
 
-    // LockRoation.Set(0, Knight.transform.rotation.y, 0);
-    // Quaternion rotation = Quaternion.Euler(LockRoation);
-    // Knight.transform.rotation = rotation;
-
-
-
-
-    // Debug.Log("Attack" + CloseEnemys2.Count);
+    for (int i = 0; i < CloseEnemys2.Count; i++)
+    {
+      if (CloseEnemys2[i].tag == this.gameObject.tag && this.gameObject != null && CloseEnemys2[i] != null)
+      {
+        CloseEnemys2.RemoveAt(i);
+      }
+      if (CloseEnemys2[i] == null)
+      {
+        CloseEnemys2.RemoveAt(i);
+      }
+    }
 
     if (CloseEnemys2.Count > 0)
     {
+
       if (Knight.CalculatePath(CloseEnemys2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
       {
         Knight.SetPath(navMeshPath);

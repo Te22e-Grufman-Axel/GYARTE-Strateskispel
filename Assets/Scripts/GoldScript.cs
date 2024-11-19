@@ -8,7 +8,7 @@ public class GoldScript : MonoBehaviour
     public int gold = 0;
     public TextMeshProUGUI GoldText;
 
-
+    float timmer;
 
 
 
@@ -18,10 +18,14 @@ public class GoldScript : MonoBehaviour
 
         GoldText.text = "Gold: " + gold;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        timmer = timmer + Time.deltaTime;
+
+        if(timmer > 1)
         {
+            timmer = 0;
             gold++;
         }
+
     }
 
 

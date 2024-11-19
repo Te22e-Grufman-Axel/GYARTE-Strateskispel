@@ -8,6 +8,7 @@ public class Spawncharactherscript : MonoBehaviour
     public GameObject Attacker;
     public GameObject Defenender;
     public GameObject Spawnlocation;
+    GameObject NewObjectCild;
 
     public Transform parent;
     public string Tag = "Player";
@@ -29,6 +30,9 @@ public class Spawncharactherscript : MonoBehaviour
             GameObject newObject = Instantiate(Attacker, Goodname, rotation, parent);
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
+            Transform childTransform = newObject.transform.Find("Colider");
+            childTransform.gameObject.tag = "Player";
+
         }
     }
     public void spawndefender()
@@ -38,10 +42,10 @@ public class Spawncharactherscript : MonoBehaviour
             gold.gold = gold.gold - 5;
             SpawnRoation.Set(0, 90, 0);
             Quaternion rotation = Quaternion.Euler(SpawnRoation);
-            GameObject newObject = Instantiate(Defenender, parent);
+            GameObject newObject = Instantiate(Defenender, Goodname, rotation, parent);
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
-            
+
             // Time.timeScale = 0;
         }
     }

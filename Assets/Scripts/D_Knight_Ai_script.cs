@@ -15,14 +15,14 @@ public class D_Knight_Ai : MonoBehaviour
     float timmer;
     [SerializeField]
     int hp = 100;
-    [SerializeField]
-    GameObject RedFlag;
-    [SerializeField]
-    GameObject GreenFlag;
-    [SerializeField]
-    GameObject YellowFlag;
-    [SerializeField]
-    GameObject Blueflag;
+
+    public GameObject RedFlag;
+
+    public GameObject GreenFlag;
+
+    public GameObject YellowFlag;
+
+    public GameObject Blueflag;
     public Knight_Ai Knight_Ai;
     Vector3 startspeed;
 
@@ -35,8 +35,13 @@ public class D_Knight_Ai : MonoBehaviour
 
     private void Start()
     {
-
+        RedFlag = GameObject.Find("Ai_2/Gyarte_RedFlag");
+        GreenFlag = GameObject.Find("Ai_1/Gyarte_GreenFlag");
+        YellowFlag = GameObject.Find("Ai_3/Gyarte_YellowFlag");
+        Blueflag = GameObject.Find("Gyarte_BlueFlag");
     }
+
+
     void Update()
     {
         if (hp <= 0)
@@ -82,7 +87,7 @@ public class D_Knight_Ai : MonoBehaviour
         {
             if (this.gameObject.tag == "Player" && CloseEnemys_P.Count > 0)
             {
-                Debug.Log(Knight + " " + CloseEnemys_P[0].transform.position);
+                // Debug.Log(Knight + " " + CloseEnemys_P[0].transform.position);
                 Knight.CalculatePath(CloseEnemys_P[0].transform.position, navMeshPath);
                 Knight.SetPath(navMeshPath);
             }
