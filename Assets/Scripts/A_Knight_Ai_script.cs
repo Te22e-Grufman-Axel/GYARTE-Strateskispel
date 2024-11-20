@@ -63,20 +63,20 @@ public class Knight_Ai : MonoBehaviour
       D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
       D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
       D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
-
+      
       Destroy(gameObject);
     }
 
-    for (int i = 0; i < CloseEnemys2.Count; i++)
+    for (int i = CloseEnemys2.Count - 1; i >= 0; i--)
     {
       if (CloseEnemys2[i].tag == this.gameObject.tag && this.gameObject != null && CloseEnemys2[i] != null)
       {
         CloseEnemys2.RemoveAt(i);
       }
-      if (CloseEnemys2[i] == null)
-      {
-        CloseEnemys2.RemoveAt(i);
-      }
+      // if (CloseEnemys2[i] == null)
+      // {
+        // CloseEnemys2.RemoveAt(i);
+      // }
     }
 
     if (CloseEnemys2.Count > 0)

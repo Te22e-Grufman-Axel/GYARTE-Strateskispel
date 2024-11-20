@@ -14,19 +14,21 @@ public class AI_charactherspawner : MonoBehaviour
     GameObject NewObjectCild;
     public Transform parent;
     public string Tag;
+    public string Tag2;
     Vector3 SpawnRoation;
     Vector3 Spawnlocation_Ai_1;
-        Vector3 Spawnlocation_Ai_2;
-            Vector3 Spawnlocation_Ai_3;
+    Vector3 Spawnlocation_Ai_2;
+    Vector3 Spawnlocation_Ai_3;
 
 
 
 
-private void Start() {
-    Spawnlocation_Ai_1.Set(803,40,226);
-      Spawnlocation_Ai_2.Set(247,40,213);
-        Spawnlocation_Ai_3.Set(241,40,760);
-}
+    private void Start()
+    {
+        Spawnlocation_Ai_1.Set(803, 40, 226);
+        Spawnlocation_Ai_2.Set(247, 40, 213);
+        Spawnlocation_Ai_3.Set(241, 40, 760);
+    }
 
 
 
@@ -48,7 +50,7 @@ private void Start() {
                 newObject.tag = Tag;
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = tag;
+                childTransform.gameObject.tag = Tag2;
             }
             else if (this.gameObject.tag == "Ai_2")
             {
@@ -59,7 +61,7 @@ private void Start() {
                 newObject.tag = Tag;
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = tag;
+                childTransform.gameObject.tag = Tag2;
             }
             else if (this.gameObject.tag == "Ai_3")
             {
@@ -70,7 +72,7 @@ private void Start() {
                 newObject.tag = Tag;
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = tag;
+                childTransform.gameObject.tag = Tag2;
             }
         }
     }

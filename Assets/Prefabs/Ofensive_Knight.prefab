@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7393632858983039029}
   m_Layer: 0
   m_Name: Colider
-  m_TagString: Player
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,11 +78,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 650.8
+      value: 785.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c860efc91faf9314aa60ef85f8c96de6, type: 3}
       propertyPath: m_LocalPosition.z
