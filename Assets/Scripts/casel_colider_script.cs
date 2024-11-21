@@ -8,19 +8,19 @@ public class casel_colider_script : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player")
+        if (other.gameObject.tag != "Player" && other.gameObject.tag != "Mis")
         {
             D_Knight_Ai.CloseEnemys_P.Add(other.gameObject);
         }
-        else if (other.gameObject.tag != "Ai_1")
+        else if (other.gameObject.tag != "Ai_1" && other.gameObject.tag != "Mis")
         {
             D_Knight_Ai.CloseEnemys_Ai1.Add(other.gameObject);
         }
-        else if (other.gameObject.tag != "Ai_2")
+        else if (other.gameObject.tag != "Ai_2" && other.gameObject.tag != "Mis")
         {
             D_Knight_Ai.CloseEnemys_Ai2.Add(other.gameObject);
         }
-        else if (other.gameObject.tag != "Ai_3")
+        else if (other.gameObject.tag != "Ai_3" && other.gameObject.tag != "Mis")
         {
             D_Knight_Ai.CloseEnemys_Ai3.Add(other.gameObject);
         }
@@ -41,7 +41,7 @@ public class casel_colider_script : MonoBehaviour
         }
         else if (other.gameObject.tag != "Ai_3")
         {
-             D_Knight_Ai.CloseEnemys_Ai3.Remove(other.gameObject);
+            D_Knight_Ai.CloseEnemys_Ai3.Remove(other.gameObject);
         }
     }
 }

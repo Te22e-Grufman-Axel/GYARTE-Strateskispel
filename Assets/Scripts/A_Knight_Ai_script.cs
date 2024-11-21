@@ -29,7 +29,7 @@ public class Knight_Ai : MonoBehaviour
   public D_Knight_Ai D_Knight_Ai;
   Vector3 startspeed;
 
-  public List<GameObject> CloseEnemys2 = new List<GameObject>();
+  public List<GameObject> CloseEnemys2;
 
   private void Awake()
   {
@@ -55,29 +55,49 @@ public class Knight_Ai : MonoBehaviour
 
   void Update()
   {
+    for (int i = CloseEnemys2.Count - 1; i >= 0; i--)
+    {
+      if (this.gameObject != null)
+      {
+        if (CloseEnemys2[i].tag == gameObject.tag && CloseEnemys2[i] != null)
+        {
+          CloseEnemys2.RemoveAt(i);
+        }
+      }
+    }
     if (hp <= 0)
     {
-      // if(D_Knight_Ai.CloseEnemys_Ai1.Contains == gameObject)
-
-      D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
-      D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
-      D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
-      D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
+    
       
+
+
+
+      if (D_Knight_Ai.CloseEnemys_Ai1.Contains(gameObject))
+      {
+        D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
+      }
+      else if (D_Knight_Ai.CloseEnemys_Ai2.Contains(gameObject))
+      {
+        D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
+      }
+      else if (D_Knight_Ai.CloseEnemys_Ai3.Contains(gameObject))
+      {
+        D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
+      }
+      else if (D_Knight_Ai.CloseEnemys_P.Contains(gameObject))
+      {
+        D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
+      }
+
+      foreach (GameObject obj in CloseEnemys2)
+      {
+        obj.transform.GetComponent<Knight_Ai>().remove(gameObject);
+      }
+
       Destroy(gameObject);
     }
 
-    for (int i = CloseEnemys2.Count - 1; i >= 0; i--)
-    {
-      if (CloseEnemys2[i].tag == this.gameObject.tag && this.gameObject != null && CloseEnemys2[i] != null)
-      {
-        CloseEnemys2.RemoveAt(i);
-      }
-      // if (CloseEnemys2[i] == null)
-      // {
-        // CloseEnemys2.RemoveAt(i);
-      // }
-    }
+
 
     if (CloseEnemys2.Count > 0)
     {
@@ -235,6 +255,14 @@ public class Knight_Ai : MonoBehaviour
           }
         }
       }
+    }
+  }
+
+  public void remove(GameObject remove)
+  {
+    if (CloseEnemys2.Contains(remove))
+    {
+      CloseEnemys2.Remove(remove);
     }
   }
 }
