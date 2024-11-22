@@ -12,7 +12,7 @@ public class Flagcoliderscrpit : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag != transform.parent.gameObject.tag)
+        if (other.gameObject.tag != transform.parent.gameObject.tag || other.gameObject.tag == "Mis")
         {
             Timmer += 1 * Time.deltaTime;
             if (Timmer > 1)
@@ -21,7 +21,7 @@ public class Flagcoliderscrpit : MonoBehaviour
                 Timmer = 0;
                 if (Hp < 0)
                 {
-                    // Destroy(transform.parent.gameObject);
+                    Destroy(transform.parent.gameObject);
                 }
             }
         }

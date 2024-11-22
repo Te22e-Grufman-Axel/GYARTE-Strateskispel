@@ -67,11 +67,6 @@ public class Knight_Ai : MonoBehaviour
     }
     if (hp <= 0)
     {
-    
-      
-
-
-
       if (D_Knight_Ai.CloseEnemys_Ai1.Contains(gameObject))
       {
         D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);

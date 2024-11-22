@@ -8,6 +8,8 @@ public class Spawncharactherscript : MonoBehaviour
     public GameObject Attacker;
     public GameObject Defenender;
     public GameObject Spawnlocation;
+    public int NumberofAttackers = 0;
+    public int NumberOfDefenders = 0;
     GameObject NewObjectCild;
 
     public Transform parent;
@@ -31,8 +33,8 @@ public class Spawncharactherscript : MonoBehaviour
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
             Transform childTransform = newObject.transform.Find("Colider");
-            childTransform.gameObject.tag = "Player";
-
+            childTransform.gameObject.tag = "Mis";
+            NumberofAttackers++;
         }
     }
     public void spawndefender()
@@ -45,8 +47,7 @@ public class Spawncharactherscript : MonoBehaviour
             GameObject newObject = Instantiate(Defenender, Goodname, rotation, parent);
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
-
-            // Time.timeScale = 0;
+            NumberOfDefenders++;
         }
     }
 
