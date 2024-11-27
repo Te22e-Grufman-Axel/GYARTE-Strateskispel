@@ -12,6 +12,7 @@ public class AI_charactherspawner : MonoBehaviour
     public GameObject Ai_3_Spawnpoint;
     public float timmer;
     GameObject NewObjectCild;
+    public GameObject D_knigt_Ai;
     public Transform parent;
     public string Tag;
     public string Tag2;
@@ -28,8 +29,8 @@ public class AI_charactherspawner : MonoBehaviour
         Spawnlocation_Ai_1.Set(803, 40, 226);
         Spawnlocation_Ai_2.Set(247, 40, 213);
         Spawnlocation_Ai_3.Set(241, 40, 760);
-    }
 
+    }
 
 
     // Update is called once per frame
@@ -51,6 +52,8 @@ public class AI_charactherspawner : MonoBehaviour
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
                 childTransform.gameObject.tag = Tag2;
+                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
             }
             else if (this.gameObject.tag == "Ai_2")
             {
@@ -62,6 +65,8 @@ public class AI_charactherspawner : MonoBehaviour
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
                 childTransform.gameObject.tag = Tag2;
+                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
             }
             else if (this.gameObject.tag == "Ai_3")
             {
@@ -73,6 +78,8 @@ public class AI_charactherspawner : MonoBehaviour
                 newObject.transform.position = Ai_1_Spawnpoint.transform.position;
                 Transform childTransform = newObject.transform.Find("Colider");
                 childTransform.gameObject.tag = Tag2;
+                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
             }
         }
     }

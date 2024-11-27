@@ -35,8 +35,6 @@ public class Knight_Ai : MonoBehaviour
   {
     navMeshPath = new UnityEngine.AI.NavMeshPath();
     Knight = GetComponent<UnityEngine.AI.NavMeshAgent>();
-
-
   }
   private void Start()
   {
@@ -65,8 +63,11 @@ public class Knight_Ai : MonoBehaviour
         }
       }
     }
+
+    // Check if the Knight is dead
     if (hp <= 0)
     {
+      // Remove from D_Knight_Ai lists
       if (D_Knight_Ai.CloseEnemys_Ai1.Contains(gameObject))
       {
         D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
@@ -84,19 +85,32 @@ public class Knight_Ai : MonoBehaviour
         D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
       }
 
+      // Notify all other Knights to remove this dead Knight from their lists
       foreach (GameObject obj in CloseEnemys2)
       {
-        obj.transform.GetComponent<Knight_Ai>().remove(gameObject);
+        if (obj != null && obj.transform.GetComponent<Knight_Ai>() != null)
+        {
+          obj.transform.GetComponent<Knight_Ai>().remove(gameObject);
+        }
       }
 
+      // Remove from the ColliderScript lists
+      Collider[] colliders = Physics.OverlapSphere(transform.position, 50f); // Adjust the radius to match your game logic
+      foreach (Collider collider in colliders)
+      {
+        ColiderScrpit coliderScript = collider.GetComponent<ColiderScrpit>();
+        if (coliderScript != null && coliderScript.knight_Ai != null)
+        {
+          coliderScript.knight_Ai.CloseEnemys2.Remove(this.gameObject);
+        }
+      }
+
+      // Destroy this Knight game object
       Destroy(gameObject);
     }
 
-
-
     if (CloseEnemys2.Count > 0)
     {
-
       if (Knight.CalculatePath(CloseEnemys2[0].transform.position, navMeshPath) && navMeshPath.status == UnityEngine.AI.NavMeshPathStatus.PathComplete)
       {
         Knight.SetPath(navMeshPath);
@@ -109,11 +123,8 @@ public class Knight_Ai : MonoBehaviour
       if (YellowFlag != null) { Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position); }
       if (Blueflag != null) { bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position); }
 
-
       List<float> closefortList = new List<float> { Reddistance, bluedistance, Greendistance, Yellowdistance };
       closefortList.Sort();
-
-
 
       if (gameObject.tag != "Ai_1" && closefortList[0] == Greendistance && GreenFlag != null)
       {
@@ -233,19 +244,17 @@ public class Knight_Ai : MonoBehaviour
       }
     }
 
-
-
     if (CloseEnemys2.Count > 0)
     {
       for (int i = 0; i < CloseEnemys2.Count; i++)
       {
-        if (UnityEngine.Vector3.Distance(Knight.transform.position, CloseEnemys2[i].transform.position) < 10)
+        if (Vector3.Distance(Knight.transform.position, CloseEnemys2[i].transform.position) < 10)
         {
           timmer += Time.deltaTime;
 
           if (timmer > 5)
           {
-            hp = hp - UnityEngine.Random.Range(10, 20);
+            hp -= UnityEngine.Random.Range(10, 20);
             timmer = 0;
           }
         }
@@ -255,9 +264,6 @@ public class Knight_Ai : MonoBehaviour
 
   public void remove(GameObject remove)
   {
-    if (CloseEnemys2.Contains(remove))
-    {
-      CloseEnemys2.Remove(remove);
-    }
+    CloseEnemys2.Remove(remove);
   }
 }

@@ -11,6 +11,7 @@ public class Spawncharactherscript : MonoBehaviour
     public int NumberofAttackers = 0;
     public int NumberOfDefenders = 0;
     GameObject NewObjectCild;
+    public GameObject D_knigt_Ai;
 
     public Transform parent;
     public string Tag = "Player";
@@ -35,6 +36,8 @@ public class Spawncharactherscript : MonoBehaviour
             Transform childTransform = newObject.transform.Find("Colider");
             childTransform.gameObject.tag = "Mis";
             NumberofAttackers++;
+            Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+            knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
         }
     }
     public void spawndefender()
@@ -48,6 +51,8 @@ public class Spawncharactherscript : MonoBehaviour
             newObject.tag = Tag;
             newObject.transform.position = Goodname;
             NumberOfDefenders++;
+            Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+            knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
         }
     }
 

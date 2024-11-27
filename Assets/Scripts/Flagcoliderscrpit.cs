@@ -9,21 +9,25 @@ public class Flagcoliderscrpit : MonoBehaviour
     [SerializeField]
     int Hp = 100;
 
-    
+
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other);
+        Debug.Log(other.tag);
+        Debug.Log(transform.parent.gameObject.tag);
         Debug.Log(Hp);
-        if (other.gameObject.tag != transform.parent.gameObject.tag || other.gameObject.tag != "Mis")
+        if (other.gameObject.tag != transform.parent.gameObject.tag)
         {
-            Timmer += 1 * Time.deltaTime;
-            if (Timmer > 1)
+            if (other.gameObject.tag != "Mis")
             {
-                Hp = Hp - 5;
-                Timmer = 0;
-                if (Hp < 0)
+                Timmer += 1 * Time.deltaTime;
+                if (Timmer > 1)
                 {
-                    Destroy(transform.parent.gameObject);
+                    Hp = Hp - 5;
+                    Timmer = 0;
+                    if (Hp < 0)
+                    {
+                        Destroy(transform.parent.gameObject);
+                    }
                 }
             }
         }
