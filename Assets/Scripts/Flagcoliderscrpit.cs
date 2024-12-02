@@ -12,9 +12,9 @@ public class Flagcoliderscrpit : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.tag);
-        Debug.Log(transform.parent.gameObject.tag);
-        Debug.Log(Hp);
+        // Debug.Log(othesr.tag);
+        // Debug.Log(transform.parent.gameObject.tag);
+        // Debug.Log(Hp);
         if (other.gameObject.tag != transform.parent.gameObject.tag)
         {
             if (other.gameObject.tag != "Mis")
