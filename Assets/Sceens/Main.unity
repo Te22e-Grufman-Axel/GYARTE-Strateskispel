@@ -169,6 +169,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   D_Knight_Ai: {fileID: 302724368}
+  CloseEnemys_P: []
+  CloseEnemys_Ai1: []
+  CloseEnemys_Ai2: []
+  CloseEnemys_Ai3: []
 --- !u!135 &38297301
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2711,6 +2715,10 @@ PrefabInstance:
       propertyPath: YellowFlag
       value: 
       objectReference: {fileID: 744399502}
+    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
+      propertyPath: casel_colider
+      value: 
+      objectReference: {fileID: 38297300}
     - target: {fileID: 3685851066318379566, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_Name
       value: Defense_Knight
@@ -2832,6 +2840,10 @@ PrefabInstance:
       propertyPath: D_Knight_Ai
       value: 
       objectReference: {fileID: 302724368}
+    - target: {fileID: 8210976426348536312, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
+      propertyPath: casel_colider
+      value: 
+      objectReference: {fileID: 38297300}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -24,6 +24,7 @@ public class AI_charactherspawner : MonoBehaviour
 
 
 
+
     private void Start()
     {
         Spawnlocation_Ai_1.Set(803, 40, 226);

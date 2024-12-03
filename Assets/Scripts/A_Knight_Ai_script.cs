@@ -30,6 +30,7 @@ public class Knight_Ai : MonoBehaviour
   Vector3 startspeed;
 
   public List<GameObject> CloseEnemys2;
+  public casel_colider_script casel_colider;
 
   private void Awake()
   {
@@ -80,9 +81,9 @@ public class Knight_Ai : MonoBehaviour
       {
         D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
       }
-      else if (D_Knight_Ai.CloseEnemys_P.Contains(gameObject))
+      else if (casel_colider.CloseEnemys_P.Contains(gameObject))
       {
-        D_Knight_Ai.CloseEnemys_P.Remove(this.gameObject);
+        casel_colider.CloseEnemys_P.Remove(this.gameObject);
       }
 
       // Notify all other Knights to remove this dead Knight from their lists
