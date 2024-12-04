@@ -18,6 +18,7 @@ public class Spawncharactherscript : MonoBehaviour
     Vector3 Goodname;
     Vector3 SpawnRoation;
     public GoldScript gold;
+    public casel_colider_script closeenemys_p2;
     private void Start()
     {
         Goodname.Set(802, 51, 758);
@@ -53,6 +54,7 @@ public class Spawncharactherscript : MonoBehaviour
             NumberOfDefenders++;
             Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
             knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
+            
         }
     }
 

@@ -26,16 +26,20 @@ public class D_Knight_Ai : MonoBehaviour
     public Knight_Ai Knight_Ai;
     Vector3 startspeed;
     public casel_colider_script casel_colider;
+    // GameObject casel;
+
 
 
     void Awake()
     {
         navMeshPath = new UnityEngine.AI.NavMeshPath();
         Knight = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        casel_colider = GetComponent<casel_colider_script>();
     }
 
     private void Start()
     {
+        // casel = GameObject.Find("Casel_Colider");
         Debug.Log(casel_colider.CloseEnemys_P.Count);
         RedFlag = GameObject.Find("Ai_2/Gyarte_RedFlag");
         GreenFlag = GameObject.Find("Ai_1/Gyarte_GreenFlag");
