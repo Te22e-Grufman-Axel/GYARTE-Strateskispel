@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 38297300}
   m_Layer: 0
   m_Name: Casel_Colider
-  m_TagString: Player
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -168,11 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d26040fa98a1c43b06a6bcdf660119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  D_Knight_Ai: {fileID: 302724368}
   CloseEnemys_P: []
-  CloseEnemys_Ai1: []
-  CloseEnemys_Ai2: []
-  CloseEnemys_Ai3: []
 --- !u!135 &38297301
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1722,11 +1718,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
   Defenender: {fileID: 302724367}
-  Spawnlocation: {fileID: 1148871055}
+  parent: {fileID: 591056079}
   NumberofAttackers: 0
   NumberOfDefenders: 0
-  D_knigt_Ai: {fileID: 302724367}
-  parent: {fileID: 591056079}
   Tag: Player
   gold: {fileID: 761486316}
 --- !u!1 &1548736396 stripped
@@ -2035,11 +2029,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
   Defenender: {fileID: 3685851066318379566, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-  Spawnlocation: {fileID: 1148871055}
+  parent: {fileID: 591056079}
   NumberofAttackers: 0
   NumberOfDefenders: 0
-  D_knigt_Ai: {fileID: 302724367}
-  parent: {fileID: 591056079}
   Tag: Player
   gold: {fileID: 761486316}
 --- !u!1001 &1664063914

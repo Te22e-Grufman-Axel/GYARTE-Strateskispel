@@ -69,19 +69,7 @@ public class Knight_Ai : MonoBehaviour
     if (hp <= 0)
     {
       // Remove from D_Knight_Ai lists
-      if (D_Knight_Ai.CloseEnemys_Ai1.Contains(gameObject))
-      {
-        D_Knight_Ai.CloseEnemys_Ai1.Remove(this.gameObject);
-      }
-      else if (D_Knight_Ai.CloseEnemys_Ai2.Contains(gameObject))
-      {
-        D_Knight_Ai.CloseEnemys_Ai2.Remove(this.gameObject);
-      }
-      else if (D_Knight_Ai.CloseEnemys_Ai3.Contains(gameObject))
-      {
-        D_Knight_Ai.CloseEnemys_Ai3.Remove(this.gameObject);
-      }
-      else if (casel_colider.CloseEnemys_P.Contains(gameObject))
+     if (casel_colider.CloseEnemys_P.Contains(gameObject))
       {
         casel_colider.CloseEnemys_P.Remove(this.gameObject);
       }

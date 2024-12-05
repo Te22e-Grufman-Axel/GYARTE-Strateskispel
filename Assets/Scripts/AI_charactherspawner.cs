@@ -1,87 +1,87 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-
-public class AI_charactherspawner : MonoBehaviour
+public class AICharacterSpawner : MonoBehaviour
 {
-
     public GameObject Attacker;
-    public GameObject Ai_1_Spawnpoint;
-    public GameObject Ai_2_Spawnpoint;
-    public GameObject Ai_3_Spawnpoint;
-    public float timmer;
-    GameObject NewObjectCild;
-    public GameObject D_knigt_Ai;
-    public Transform parent;
-    public string Tag;
-    public string Tag2;
-    Vector3 SpawnRoation;
-    Vector3 Spawnlocation_Ai_1;
-    Vector3 Spawnlocation_Ai_2;
-    Vector3 Spawnlocation_Ai_3;
+    public GameObject SpawnPointAI1;
+    public GameObject SpawnPointAI2;
+    public GameObject SpawnPointAI3;
+    public Transform Parent;
+    public GameObject KnightAIReference;
 
+    public float Timer;
+    public float SpawnInterval = 8f;
+    public string DefaultTag;
+    public string ColliderTag;
 
+    private readonly Vector3 Rotation = new Vector3(0, 90, 0);
 
-
-
-    private void Start()
+    private void Update()
     {
-        Spawnlocation_Ai_1.Set(803, 40, 226);
-        Spawnlocation_Ai_2.Set(247, 40, 213);
-        Spawnlocation_Ai_3.Set(241, 40, 760);
+        Timer += Time.deltaTime;
 
+        if (Timer > SpawnInterval)
+        {
+            Timer = 0;
+            Vector3 spawnPosition;
+            GameObject spawnPoint;
+
+            if (tag == "Ai_1")
+            {
+                spawnPosition = SpawnPointAI1.transform.position;
+                spawnPoint = SpawnPointAI1;
+            }
+            else if (tag == "Ai_2")
+            {
+                spawnPosition = SpawnPointAI2.transform.position;
+                spawnPoint = SpawnPointAI2;
+            }
+            else if (tag == "Ai_3")
+            {
+                spawnPosition = SpawnPointAI3.transform.position;
+                spawnPoint = SpawnPointAI3;
+            }
+            else
+            {
+                return;
+            }
+
+            SpawnAttacker(spawnPosition, spawnPoint);
+        }
     }
 
-
-    // Update is called once per frame
-    void Update()
+    private void SpawnAttacker(Vector3 spawnPosition, GameObject spawnPoint)
     {
-        timmer = timmer + Time.deltaTime;
+        Quaternion rotation = Quaternion.Euler(Rotation);
+        GameObject newObject = Instantiate(Attacker, spawnPosition, rotation, Parent);
+        newObject.tag = DefaultTag;
 
-        if (timmer > 8)
+        if (spawnPoint != null)
         {
-            timmer = 0;
+            newObject.transform.position = spawnPoint.transform.position;
+        }
 
-            if (this.gameObject.tag == "Ai_1")
+        Collider collider = newObject.GetComponent<Collider>();
+        if (collider != null)
+        {
+            collider.isTrigger = true;
+        }
+
+        Transform childTransform = newObject.transform.Find("Colider");
+        if (childTransform != null)
+        {
+            Collider childCollider = childTransform.GetComponent<Collider>();
+            if (childCollider != null)
             {
-                tag = "Ai_1";
-                SpawnRoation.Set(0, 90, 0);
-                Quaternion rotation = Quaternion.Euler(SpawnRoation);
-                GameObject newObject = Instantiate(Attacker, Spawnlocation_Ai_1, rotation, parent);
-                newObject.tag = Tag;
-                newObject.transform.position = Ai_1_Spawnpoint.transform.position;
-                Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = Tag2;
-                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
-                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
+                childCollider.isTrigger = true;
             }
-            else if (this.gameObject.tag == "Ai_2")
-            {
-                tag = "Ai_2";
-                SpawnRoation.Set(0, 90, 0);
-                Quaternion rotation = Quaternion.Euler(SpawnRoation);
-                GameObject newObject = Instantiate(Attacker, Spawnlocation_Ai_2, rotation, parent);
-                newObject.tag = Tag;
-                newObject.transform.position = Ai_1_Spawnpoint.transform.position;
-                Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = Tag2;
-                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
-                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
-            }
-            else if (this.gameObject.tag == "Ai_3")
-            {
-                tag = "Ai_3";
-                SpawnRoation.Set(0, 90, 0);
-                Quaternion rotation = Quaternion.Euler(SpawnRoation);
-                GameObject newObject = Instantiate(Attacker, Spawnlocation_Ai_3, rotation, parent);
-                newObject.tag = Tag;
-                newObject.transform.position = Ai_1_Spawnpoint.transform.position;
-                Transform childTransform = newObject.transform.Find("Colider");
-                childTransform.gameObject.tag = Tag2;
-                Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
-                knightAI.D_Knight_Ai = D_knigt_Ai.GetComponent<D_Knight_Ai>();
-            }
+            childTransform.gameObject.tag = ColliderTag;
+        }
+
+        Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
+        if (knightAI != null)
+        {
+            knightAI.D_Knight_Ai = KnightAIReference.GetComponent<D_Knight_Ai>();
         }
     }
 }
