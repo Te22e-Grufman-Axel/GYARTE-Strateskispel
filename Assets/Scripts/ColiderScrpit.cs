@@ -13,22 +13,11 @@ public class ColiderScrpit : MonoBehaviour
     {
         if (other.gameObject.tag != "Mis")
         {
-            if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Player")
+            if (other.gameObject.tag != this.transform.parent.tag)
             {
                 knight_Ai.CloseEnemys2.Add(other.gameObject);
             }
-            else if (other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_1")
-            {
-                knight_Ai.CloseEnemys2.Add(other.gameObject);
-            }
-            else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Player" || other.gameObject.tag == "Ai_3" || this.gameObject.tag == "Ai_2")
-            {
-                knight_Ai.CloseEnemys2.Add(other.gameObject);
-            }
-            else if (other.gameObject.tag == "Ai_1" || other.gameObject.tag == "Ai_2" || other.gameObject.tag == "Player" || this.gameObject.tag == "Ai_3")
-            {
-                knight_Ai.CloseEnemys2.Add(other.gameObject);
-            }
+
         }
 
     }

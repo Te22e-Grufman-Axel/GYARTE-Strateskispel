@@ -18,6 +18,7 @@ public class Knight_Ai : MonoBehaviour
   GameObject Blueflag;
   [SerializeField]
   float timmer;
+  float timmer2;
   [SerializeField]
   int hp = 100;
   float closesfort;
@@ -31,6 +32,7 @@ public class Knight_Ai : MonoBehaviour
 
   public List<GameObject> CloseEnemys2;
   public casel_colider_script casel_colider;
+
 
   private void Awake()
   {
@@ -54,27 +56,34 @@ public class Knight_Ai : MonoBehaviour
 
   void Update()
   {
+    timmer2 = timmer2 + Time.deltaTime;
+
+    if (timmer2 > 1)
+    {
+      timmer2 = 0;
+      Knight.CalculatePath(startspeed, navMeshPath);
+      Knight.SetPath(navMeshPath);
+    }
+
+    Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
+    Knight.SetPath(navMeshPath);
     for (int i = CloseEnemys2.Count - 1; i >= 0; i--)
     {
-      if (this.gameObject != null)
+      if (this.gameObject != null && CloseEnemys2[i] != null)
       {
-        if (CloseEnemys2[i].tag == gameObject.tag && CloseEnemys2[i] != null)
+        if (CloseEnemys2[i].tag == gameObject.tag)
         {
           CloseEnemys2.RemoveAt(i);
         }
       }
     }
-
-    // Check if the Knight is dead
     if (hp <= 0)
     {
-      // Remove from D_Knight_Ai lists
-     if (casel_colider.CloseEnemys_P.Contains(gameObject))
+
+      if (casel_colider.CloseEnemys_P.Contains(gameObject))
       {
         casel_colider.CloseEnemys_P.Remove(this.gameObject);
       }
-
-      // Notify all other Knights to remove this dead Knight from their lists
       foreach (GameObject obj in CloseEnemys2)
       {
         if (obj != null && obj.transform.GetComponent<Knight_Ai>() != null)
@@ -83,7 +92,6 @@ public class Knight_Ai : MonoBehaviour
         }
       }
 
-      // Remove from the ColliderScript lists
       Collider[] colliders = Physics.OverlapSphere(transform.position, 50f); // Adjust the radius to match your game logic
       foreach (Collider collider in colliders)
       {
@@ -94,7 +102,7 @@ public class Knight_Ai : MonoBehaviour
         }
       }
 
-      // Destroy this Knight game object
+
       Destroy(gameObject);
     }
 
@@ -113,6 +121,10 @@ public class Knight_Ai : MonoBehaviour
       if (Blueflag != null) { bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position); }
 
       List<float> closefortList = new List<float> { Reddistance, bluedistance, Greendistance, Yellowdistance };
+      if (RedFlag == null) { closefortList.Remove(Reddistance); }
+      if (GreenFlag == null) { closefortList.Remove(Greendistance); }
+      if (YellowFlag == null) { closefortList.Remove(Yellowdistance); }
+      if (Blueflag == null) { closefortList.Remove(bluedistance); }
       closefortList.Sort();
 
       if (gameObject.tag != "Ai_1" && closefortList[0] == Greendistance && GreenFlag != null)

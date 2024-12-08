@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 165377646}
   m_Layer: 0
   m_Name: FlagColider
-  m_TagString: Ai_3
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a61fe12eea6f429a1155575cb4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timmer: 0
   Hp: 100
 --- !u!135 &165377646
 SphereCollider:
@@ -430,7 +431,7 @@ GameObject:
   - component: {fileID: 416505005}
   m_Layer: 0
   m_Name: FlagColider
-  m_TagString: Ai_1
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -462,6 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a61fe12eea6f429a1155575cb4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timmer: 0
   Hp: 100
 --- !u!135 &416505005
 SphereCollider:
@@ -994,14 +996,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1548736396}
-  Ai_1_Spawnpoint: {fileID: 1813644740}
-  Ai_2_Spawnpoint: {fileID: 1860907688}
-  Ai_3_Spawnpoint: {fileID: 744399502}
-  timmer: 0
-  D_knigt_Ai: {fileID: 302724367}
-  parent: {fileID: 529434297}
-  Tag: Ai_3
-  Tag2: Mis
+  SpawnPointAI1: {fileID: 1813644740}
+  SpawnPointAI2: {fileID: 1860907688}
+  SpawnPointAI3: {fileID: 744399502}
+  Parent: {fileID: 529434297}
+  KnightAIReference: {fileID: 1548736396}
+  Timer: 0
+  SpawnInterval: 8
+  DefaultTag: Ai_3
+  ColliderTag: Mis
 --- !u!1 &761486314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c1b36fdc3947b449d1f90b82cfd0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 50
+  gold: 500
   GoldText: {fileID: 761486317}
 --- !u!114 &761486317
 MonoBehaviour:
@@ -1262,7 +1265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1038831607}
-  - component: {fileID: 1038831606}
+  - component: {fileID: 1038831608}
   m_Layer: 0
   m_Name: Gamemanager
   m_TagString: Untagged
@@ -1270,21 +1273,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1038831606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1038831605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64621db096795540a014abb258591d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOutcome: 0
-  numberOfDefenders: 13
-  numberOfAttackers: 12
 --- !u!4 &1038831607
 Transform:
   m_ObjectHideFlags: 0
@@ -1294,12 +1282,35 @@ Transform:
   m_GameObject: {fileID: 1038831605}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 790.4073, y: 34.068142, z: 743.70557}
+  m_LocalPosition: {x: 432, y: 1.28, z: 442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038831608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038831605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f921ec0850c17645ae40681402033da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOutcome: 0
+  numberOfDefenders: 0
+  numberOfAttackers: 0
+  Greenflag: {fileID: 1813644740}
+  Redflag: {fileID: 1860907688}
+  Yellowflag: {fileID: 744399502}
+  Blueflag: {fileID: 1148871055}
+  timmer: 0
+  time: 0
+  PlayerCharacterSpawnerA: {fileID: 1518454836}
+  PlayerCharacterSpawnerD: {fileID: 1632684464}
 --- !u!1001 &1098836427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,7 +1397,7 @@ GameObject:
   - component: {fileID: 1210628953}
   m_Layer: 0
   m_Name: Flagcolider
-  m_TagString: Ai_2
+  m_TagString: Mis
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1418,6 +1429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a61fe12eea6f429a1155575cb4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timmer: 0
   Hp: 100
 --- !u!135 &1210628953
 SphereCollider:
@@ -1655,8 +1667,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1518454836}
-        m_TargetAssemblyTypeName: Spawncharactherscript, Assembly-CSharp
-        m_MethodName: Spawnattacker
+        m_TargetAssemblyTypeName: PlayerCharacterSpawner, Assembly-CSharp
+        m_MethodName: SpawnAttacker
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1717,12 +1729,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
-  Defenender: {fileID: 302724367}
-  parent: {fileID: 591056079}
-  NumberofAttackers: 0
+  Defender: {fileID: 302724367}
+  Parent: {fileID: 591056079}
+  NumberOfAttackers: 0
   NumberOfDefenders: 0
   Tag: Player
-  gold: {fileID: 761486316}
+  SpawnPosition: {x: 802, y: 51, z: 758}
+  SpawnRotation: {x: 0, y: 90, z: 0}
+  Gold: {fileID: 761486316}
 --- !u!1 &1548736396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
@@ -1966,8 +1980,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1632684464}
-        m_TargetAssemblyTypeName: Spawncharactherscript, Assembly-CSharp
-        m_MethodName: spawndefender
+        m_TargetAssemblyTypeName: PlayerCharacterSpawner, Assembly-CSharp
+        m_MethodName: SpawnDefender
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2028,12 +2042,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
-  Defenender: {fileID: 3685851066318379566, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-  parent: {fileID: 591056079}
-  NumberofAttackers: 0
+  Defender: {fileID: 302724367}
+  Parent: {fileID: 591056079}
+  NumberOfAttackers: 0
   NumberOfDefenders: 0
   Tag: Player
-  gold: {fileID: 761486316}
+  SpawnPosition: {x: 802, y: 51, z: 758}
+  SpawnRotation: {x: 0, y: 90, z: 0}
+  Gold: {fileID: 761486316}
 --- !u!1001 &1664063914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2133,7 +2149,7 @@ MonoBehaviour:
   Roteringfart: 50
   "Roteringomr\xE5de": 50
   ZoomSpeed: 1000
-  Maxzoom: 100
+  Maxzoom: 200
   MinZoom: 55
   wheelmovment: 0
 --- !u!81 &1706822703
@@ -2304,14 +2320,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1548736396}
-  Ai_1_Spawnpoint: {fileID: 1813644740}
-  Ai_2_Spawnpoint: {fileID: 1860907688}
-  Ai_3_Spawnpoint: {fileID: 744399502}
-  timmer: 0
-  D_knigt_Ai: {fileID: 302724367}
-  parent: {fileID: 1293842757}
-  Tag: Ai_1
-  Tag2: Mis
+  SpawnPointAI1: {fileID: 1813644740}
+  SpawnPointAI2: {fileID: 1860907688}
+  SpawnPointAI3: {fileID: 744399502}
+  Parent: {fileID: 1293842757}
+  KnightAIReference: {fileID: 1548736396}
+  Timer: 0
+  SpawnInterval: 8
+  DefaultTag: Ai_1
+  ColliderTag: Mis
 --- !u!1001 &1829905662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2604,14 +2621,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacker: {fileID: 1548736396}
-  Ai_1_Spawnpoint: {fileID: 1813644740}
-  Ai_2_Spawnpoint: {fileID: 1860907688}
-  Ai_3_Spawnpoint: {fileID: 744399502}
-  timmer: 0
-  D_knigt_Ai: {fileID: 302724367}
-  parent: {fileID: 1487675007}
-  Tag: Ai_2
-  Tag2: Mis
+  SpawnPointAI1: {fileID: 1813644740}
+  SpawnPointAI2: {fileID: 1860907688}
+  SpawnPointAI3: {fileID: 744399502}
+  Parent: {fileID: 1487675007}
+  KnightAIReference: {fileID: 1548736396}
+  Timer: 0
+  SpawnInterval: 8
+  DefaultTag: Ai_2
+  ColliderTag: Mis
 --- !u!1 &2043742804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 506a61fe12eea6f429a1155575cb4cc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timmer: 0
   Hp: 100
 --- !u!135 &2043742807
 SphereCollider:
@@ -2711,6 +2730,10 @@ PrefabInstance:
       propertyPath: casel_colider
       value: 
       objectReference: {fileID: 38297300}
+    - target: {fileID: 3147837734631750591, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3685851066318379566, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_Name
       value: Defense_Knight
@@ -2811,6 +2834,10 @@ PrefabInstance:
     - target: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_Name
       value: Ofensive_Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799396803516449293, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8210976426348536312, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: RedFlag

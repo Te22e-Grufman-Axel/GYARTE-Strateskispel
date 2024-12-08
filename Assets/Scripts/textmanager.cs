@@ -1,34 +1,35 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 
 public class EndScreen : MonoBehaviour
 {
-    public TextMeshProUGUI outcomeText;       // Drag and drop the UI Text for the outcome message
-    public TextMeshProUGUI defendersText;    // Drag and drop the UI Text for defenders
-    public TextMeshProUGUI attackersText;    // Drag and drop the UI Text for attackers
+    public TextMeshProUGUI outcomeText;
+    public TextMeshProUGUI defendersText;
+    public TextMeshProUGUI attackersText;
 
     private void Start()
     {
-        // Display outcome message
-        switch (GameManager.Instance.gameOutcome)
+        if (Gamemanager2.Instance.gameOutcome == 1)
         {
-            case 1:
-                outcomeText.text = "You Win!";
-                break;
-            case 2:
-                outcomeText.text = "You Lose!";
-                break;
-            case 3:
-                outcomeText.text = "Time's Up!";
-                break;
-            default:
-                outcomeText.text = "Game Over";
-                break;
+            outcomeText.text = "You Win!";
+        }
+        else if (Gamemanager2.Instance.gameOutcome == 2)
+        {
+            outcomeText.text = "You Lose!";
         }
 
-        // Display number of defenders and attackers
-        defendersText.text = "Number of Defenders: " + GameManager.Instance.numberOfDefenders;
-        attackersText.text = "Number of Attackers: " + GameManager.Instance.numberOfAttackers;
+        else if (Gamemanager2.Instance.gameOutcome == 3)
+        {
+            outcomeText.text = "Time's Up!";
+        }
+        else
+        {
+            outcomeText.text = "Game Over";
+        }
+
+        defendersText.text = "Number of Defenders: " + Gamemanager2.Instance.numberOfDefenders;
+        attackersText.text = "Number of Attackers: " + Gamemanager2.Instance.numberOfAttackers;
     }
 }

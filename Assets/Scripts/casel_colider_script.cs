@@ -29,5 +29,17 @@ public class casel_colider_script : MonoBehaviour
                 CloseEnemys_P.Remove(other.gameObject);
         }
     }
-  
+    private void Update()
+    {
+        for (int i = CloseEnemys_P.Count - 1; i >= 0; i--)
+        {
+            if (CloseEnemys_P[i] == null)
+            {
+                CloseEnemys_P.RemoveAt(i);
+            }
+        }
+    }
+
+
+
 }
