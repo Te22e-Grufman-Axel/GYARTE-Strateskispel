@@ -20,18 +20,19 @@ public class Knight_Ai : MonoBehaviour
   float timmer;
   float timmer2;
   [SerializeField]
-  int hp = 100;
+  int hp = 110;
   float closesfort;
-  float Reddistance;
-  float Greendistance;
-  float bluedistance;
-  float Yellowdistance;
+  float Reddistance = 1000;
+  float Greendistance = 1000;
+  float bluedistance = 1000;
+  float Yellowdistance = 1000;
   Vector3 LockRoation;
   public D_Knight_Ai D_Knight_Ai;
   Vector3 startspeed;
 
   public List<GameObject> CloseEnemys2;
   public casel_colider_script casel_colider;
+  public List<float> closefortList = new List<float>();
 
 
   private void Awake()
@@ -52,6 +53,7 @@ public class Knight_Ai : MonoBehaviour
     GreenFlag = GameObject.Find("Ai_1/Gyarte_GreenFlag");
     YellowFlag = GameObject.Find("Ai_3/Gyarte_YellowFlag");
     Blueflag = GameObject.Find("Gyarte_BlueFlag");
+
   }
 
   void Update()
@@ -75,11 +77,15 @@ public class Knight_Ai : MonoBehaviour
         {
           CloseEnemys2.RemoveAt(i);
         }
+        if (CloseEnemys2[i].gameObject == null)
+        {
+          CloseEnemys2.RemoveAt(i);
+        }
       }
     }
-    if (hp <= 0)
+    if (hp <= 10)
     {
-
+      Destroy(gameObject);
       if (casel_colider.CloseEnemys_P.Contains(gameObject))
       {
         casel_colider.CloseEnemys_P.Remove(this.gameObject);
@@ -92,7 +98,7 @@ public class Knight_Ai : MonoBehaviour
         }
       }
 
-      Collider[] colliders = Physics.OverlapSphere(transform.position, 50f); // Adjust the radius to match your game logic
+      Collider[] colliders = Physics.OverlapSphere(transform.position, 50f);
       foreach (Collider collider in colliders)
       {
         ColiderScrpit coliderScript = collider.GetComponent<ColiderScrpit>();
@@ -103,7 +109,7 @@ public class Knight_Ai : MonoBehaviour
       }
 
 
-      Destroy(gameObject);
+
     }
 
     if (CloseEnemys2.Count > 0)
@@ -120,15 +126,24 @@ public class Knight_Ai : MonoBehaviour
       if (YellowFlag != null) { Yellowdistance = UnityEngine.Vector3.Distance(Knight.transform.position, YellowFlag.transform.position); }
       if (Blueflag != null) { bluedistance = UnityEngine.Vector3.Distance(Knight.transform.position, Blueflag.transform.position); }
 
-      List<float> closefortList = new List<float> { Reddistance, bluedistance, Greendistance, Yellowdistance };
-      if (RedFlag == null) { closefortList.Remove(Reddistance); }
-      if (GreenFlag == null) { closefortList.Remove(Greendistance); }
-      if (YellowFlag == null) { closefortList.Remove(Yellowdistance); }
-      if (Blueflag == null) { closefortList.Remove(bluedistance); }
+      closefortList.Clear();
+      closefortList.Add(Reddistance);
+      closefortList.Add(bluedistance);
+      closefortList.Add(Greendistance);
+      closefortList.Add(Yellowdistance);
+      // if (RedFlag == null) { closefortList.Remove(Reddistance); }
+      // if (GreenFlag == null) { closefortList.Remove(Greendistance); }
+      // if (YellowFlag == null) { closefortList.Remove(Yellowdistance); }
+      // if (Blueflag == null) { closefortList.Remove(bluedistance); }
+      if (RedFlag == null) { Reddistance *= 1000; }
+      if (GreenFlag == null) { Greendistance *= 1000; }
+      if (YellowFlag == null) { Yellowdistance *= 1000; }
+      if (Blueflag == null) { bluedistance *= 1000; }
       closefortList.Sort();
 
       if (gameObject.tag != "Ai_1" && closefortList[0] == Greendistance && GreenFlag != null)
       {
+        // Debug.Log(gameObject.tag + "1");
         Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
@@ -137,27 +152,32 @@ public class Knight_Ai : MonoBehaviour
         closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
         if (closesfort == Reddistance && RedFlag != null)
         {
+          // Debug.Log(gameObject.tag + "2");
           Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Greendistance && GreenFlag != null)
         {
+          // Debug.Log(gameObject.tag + "3");
           Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Yellowdistance && YellowFlag != null)
         {
+          // Debug.Log(gameObject.tag + "4");
           Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
-        else if (closesfort == bluedistance && Blueflag != null)
+        else if (closesfort == bluedistance && Blueflag != null && gameObject.tag != "Player")
         {
+          // Debug.Log(gameObject.tag + "5");
           Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
       }
       else if (gameObject.tag != "Ai_2" && closefortList[0] == Reddistance && RedFlag != null)
       {
+        // Debug.Log(gameObject.tag + "6");
         Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
@@ -166,27 +186,32 @@ public class Knight_Ai : MonoBehaviour
         closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
         if (closesfort == Reddistance && RedFlag != null)
         {
+          // Debug.Log(gameObject.tag + "7");
           Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Greendistance && GreenFlag != null)
         {
+          // Debug.Log(gameObject.tag + "8");
           Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Yellowdistance && YellowFlag != null)
         {
+          // Debug.Log(gameObject.tag + "9");
           Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
-        else if (closesfort == bluedistance && Blueflag != null)
+        else if (closesfort == bluedistance && Blueflag != null && gameObject.tag != "Player")
         {
+          // Debug.Log(gameObject.tag + "10");
           Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
       }
       else if (gameObject.tag != "Ai_3" && closefortList[0] == Yellowdistance && YellowFlag != null)
       {
+        // Debug.Log(gameObject.tag + "11");
         Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
@@ -195,27 +220,32 @@ public class Knight_Ai : MonoBehaviour
         closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
         if (closesfort == Reddistance && RedFlag != null)
         {
+          // Debug.Log(gameObject.tag + "12");
           Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Greendistance && GreenFlag != null)
         {
+          // Debug.Log(gameObject.tag + "13");
           Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Yellowdistance && YellowFlag != null)
         {
+          // Debug.Log(gameObject.tag + "14");
           Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
-        else if (closesfort == bluedistance && Blueflag != null)
+        else if (closesfort == bluedistance && Blueflag != null && gameObject.tag != "Player")
         {
+          // Debug.Log(gameObject.tag + "15");
           Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
       }
       else if (gameObject.tag != "Player" && closefortList[0] == bluedistance && Blueflag != null)
       {
+        // Debug.Log(gameObject.tag + "16");
         Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
         Knight.SetPath(navMeshPath);
       }
@@ -224,21 +254,25 @@ public class Knight_Ai : MonoBehaviour
         closesfort = Math.Min(closefortList[1], Math.Min(closefortList[2], closefortList[3]));
         if (closesfort == Reddistance && RedFlag != null)
         {
+          // Debug.Log(gameObject.tag + "17");
           Knight.CalculatePath(RedFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Greendistance && GreenFlag != null)
         {
+          // Debug.Log(gameObject.tag + "18");
           Knight.CalculatePath(GreenFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
         else if (closesfort == Yellowdistance && YellowFlag != null)
         {
+          // Debug.Log(gameObject.tag + "19");
           Knight.CalculatePath(YellowFlag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }
-        else if (closesfort == bluedistance && Blueflag != null)
+        else if (closesfort == bluedistance && Blueflag != null && gameObject.tag != "Player")
         {
+          // Debug.Log(gameObject.tag + "20");
           Knight.CalculatePath(Blueflag.transform.position, navMeshPath);
           Knight.SetPath(navMeshPath);
         }

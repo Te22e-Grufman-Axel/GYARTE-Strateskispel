@@ -56,32 +56,21 @@ public class AICharacterSpawner : MonoBehaviour
         GameObject newObject = Instantiate(Attacker, spawnPosition, rotation, Parent);
         newObject.tag = DefaultTag;
 
-        if (spawnPoint != null)
-        {
-            newObject.transform.position = spawnPoint.transform.position;
-        }
+        newObject.transform.position = spawnPoint.transform.position;
 
         Collider collider = newObject.GetComponent<Collider>();
-        if (collider != null)
-        {
-            collider.isTrigger = true;
-        }
+        collider.isTrigger = true;
 
         Transform childTransform = newObject.transform.Find("Colider");
-        if (childTransform != null)
-        {
-            Collider childCollider = childTransform.GetComponent<Collider>();
-            if (childCollider != null)
-            {
-                childCollider.isTrigger = true;
-            }
-            childTransform.gameObject.tag = ColliderTag;
-        }
+
+        Collider childCollider = childTransform.GetComponent<Collider>();
+        childCollider.isTrigger = true;
+        childTransform.gameObject.tag = ColliderTag;
+
 
         Knight_Ai knightAI = newObject.GetComponent<Knight_Ai>();
-        if (knightAI != null)
-        {
-            knightAI.D_Knight_Ai = KnightAIReference.GetComponent<D_Knight_Ai>();
-        }
+        knightAI.D_Knight_Ai = KnightAIReference.GetComponent<D_Knight_Ai>();
+
+
     }
 }

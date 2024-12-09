@@ -1055,7 +1055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2c1b36fdc3947b449d1f90b82cfd0a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 500
+  gold: 0
   GoldText: {fileID: 761486317}
 --- !u!114 &761486317
 MonoBehaviour:
@@ -1737,22 +1737,12 @@ MonoBehaviour:
   SpawnPosition: {x: 802, y: 51, z: 758}
   SpawnRotation: {x: 0, y: 90, z: 0}
   Gold: {fileID: 761486316}
+  material: {fileID: 2100000, guid: 4cc9c527d206aeb45944469c9d937776, type: 2}
 --- !u!1 &1548736396 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
   m_PrefabInstance: {fileID: 4783863001983060152}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1548736397 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8210976426348536312, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
-  m_PrefabInstance: {fileID: 4783863001983060152}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548736396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb0ee21c198295042bb5a0a92cd966cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1548736401 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 426654035564741871, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
@@ -2050,6 +2040,7 @@ MonoBehaviour:
   SpawnPosition: {x: 802, y: 51, z: 758}
   SpawnRotation: {x: 0, y: 90, z: 0}
   Gold: {fileID: 761486316}
+  material: {fileID: 2100000, guid: 4cc9c527d206aeb45944469c9d937776, type: 2}
 --- !u!1001 &1664063914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2707,33 +2698,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 591056079}
     m_Modifications:
     - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: RedFlag
-      value: 
-      objectReference: {fileID: 1860907688}
-    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: Blueflag
       value: 
       objectReference: {fileID: 1148871055}
-    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: GreenFlag
-      value: 
-      objectReference: {fileID: 1813644740}
-    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: Knight_Ai
-      value: 
-      objectReference: {fileID: 1548736397}
-    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: YellowFlag
-      value: 
-      objectReference: {fileID: 744399502}
-    - target: {fileID: 1086069696765536956, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: casel_colider
-      value: 
-      objectReference: {fileID: 38297300}
-    - target: {fileID: 3147837734631750591, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3685851066318379566, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_Name
       value: Defense_Knight
@@ -2744,7 +2711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -538.40485
+      value: -557.8
       objectReference: {fileID: 0}
     - target: {fileID: 4065930952421310612, guid: 5a464f78754dd4e4b8a06e96a6c362e5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2797,7 +2764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 426654035564741871, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -577.43
+      value: -708
       objectReference: {fileID: 0}
     - target: {fileID: 426654035564741871, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2834,10 +2801,6 @@ PrefabInstance:
     - target: {fileID: 1053867847146708565, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: m_Name
       value: Ofensive_Knight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799396803516449293, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8210976426348536312, guid: 104e0f320ef1c19499829212cbc6c8aa, type: 3}
       propertyPath: RedFlag

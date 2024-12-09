@@ -82,7 +82,7 @@ public class Gamemanager2 : MonoBehaviour
         }
 
 
-        Debug.Log(gameOutcome);
-        Debug.Log("sceneName" + sceneName);
+        // Debug.Log(gameOutcome);
+        // Debug.Log("sceneName" + sceneName);
     }
 }

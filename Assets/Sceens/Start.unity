@@ -289,7 +289,6 @@ MonoBehaviour:
     Controls:
 
 
-
     Use WASD to move.
 
     Rotate
@@ -302,13 +301,12 @@ MonoBehaviour:
     minutes to:
 
 
-
     Eliminate the other teams or
 
-    Survive until time runs
-    out.
+    Survive until time runs out.
 
-    The choice is yours. Make it count.'
+    The
+    choice is yours. Make it count.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

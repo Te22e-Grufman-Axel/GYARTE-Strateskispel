@@ -11,6 +11,8 @@ public class PlayerCharacterSpawner : MonoBehaviour
     public Vector3 SpawnPosition = new Vector3(802, 51, 758);
     public Vector3 SpawnRotation = new Vector3(0, 90, 0);
     public GoldScript Gold;
+    public Material material;
+
 
     private void SpawnCharacter(GameObject characterPrefab, ref int count)
     {
@@ -22,12 +24,20 @@ public class PlayerCharacterSpawner : MonoBehaviour
             newObject.tag = Tag;
 
             Collider collider = newObject.GetComponent<Collider>();
-            if (collider != null)
-            {
-                collider.isTrigger = true;
-            }
+            collider.isTrigger = true;
 
-            count++;
+
+            // SkinnedMeshRenderer rend = newObject.GetComponent<MeshRenderer>();
+            // Renderer rend2 = newObject.GetComponentInChildren<Renderer>();
+            // rend.material = material;
+            // rend2.material = material;
+
+            Renderer[] soldier;
+            soldier = GetComponentsInChildren<Renderer>();
+            soldier[0].material = material;
+
+
+
         }
     }
 
